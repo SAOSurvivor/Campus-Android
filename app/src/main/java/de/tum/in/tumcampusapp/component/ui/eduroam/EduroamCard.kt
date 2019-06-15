@@ -39,12 +39,13 @@ class EduroamCard(context: Context) : Card(CardManager.CARD_EDUROAM, context, "c
     override fun shouldShow(prefs: SharedPreferences): Boolean {
         // Check if WiFi is turned on at all, as we cannot say if it was configured if it is off
         val wifiManager = context.wifiManager
-        return (wifiManager.isWifiEnabled && EduroamController.getEduroamConfig(context) == null && eduroamAvailable(wifiManager))
+        val eduroamController = EduroamController(context)
+        return wifiManager.isWifiEnabled
+            && eduroamController.isNotConfigured && isEduroamAvailable(wifiManager)
     }
 
-    private fun eduroamAvailable(wifi: WifiManager): Boolean {
+    private fun isEduroamAvailable(wifi: WifiManager): Boolean {
         val fineLocationPermission = checkSelfPermission(context, ACCESS_FINE_LOCATION)
-
         val coarseLocationPermission = checkSelfPermission(context, ACCESS_COARSE_LOCATION)
 
         if (fineLocationPermission == PERMISSION_GRANTED || coarseLocationPermission == PERMISSION_GRANTED) {

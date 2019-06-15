@@ -3,11 +3,13 @@ package de.tum.in.tumcampusapp.component.ui.eduroam;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import com.google.android.material.textfield.TextInputEditText;
-import androidx.appcompat.app.AlertDialog;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.regex.Pattern;
 
@@ -97,7 +99,7 @@ public class SetupEduroamActivity extends BaseActivity {
         }
 
         //Do Setup
-        EduroamController manager = new EduroamController(getApplicationContext());
+        EduroamController manager = new EduroamController(this);
         boolean success = manager.configureEduroam(lrz.getText()
                                                       .toString(), password.getText()
                                                                            .toString());

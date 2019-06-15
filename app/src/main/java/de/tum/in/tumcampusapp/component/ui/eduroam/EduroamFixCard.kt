@@ -21,7 +21,7 @@ import de.tum.`in`.tumcampusapp.utils.Const
 import de.tum.`in`.tumcampusapp.utils.Utils
 import org.jetbrains.anko.defaultSharedPreferences
 import org.jetbrains.anko.wifiManager
-import java.util.*
+import java.util.ArrayList
 import java.util.regex.Pattern
 
 class EduroamFixCard(
@@ -33,8 +33,10 @@ class EduroamFixCard(
 
     private fun isConfigValid(): Boolean {
         errors.clear()
+
         // If it is not configured then the config valid
-        eduroam = EduroamController.getEduroamConfig(context) ?: return true
+        val eduroamController = EduroamController(context)
+        eduroam = eduroamController.configuration ?: return true
 
         // Eduroam was configured by other university
         if (!isTumEduroam(eduroam.enterpriseConfig.identity)) {
