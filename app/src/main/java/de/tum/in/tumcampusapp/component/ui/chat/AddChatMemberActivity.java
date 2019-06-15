@@ -10,12 +10,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.api.app.ApiHelper;
 import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
