@@ -32,7 +32,7 @@ class EduroamCard(context: Context) : Card(CardManager.CARD_EDUROAM, context, "c
     override fun updateViewHolder(viewHolder: RecyclerView.ViewHolder) {
         val button = viewHolder.itemView.findViewById<MaterialButton>(R.id.eduroam_action_button)
         button.setOnClickListener {
-            it.context.startActivity(Intent(context, SetupEduroamActivity::class.java))
+            context.startActivity(Intent(context, SetupEduroamActivity::class.java))
         }
     }
 
