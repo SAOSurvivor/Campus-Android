@@ -2,6 +2,9 @@ package de.tum.in.tumcampusapp.api.app;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -13,8 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import de.tum.in.tumcampusapp.api.app.exception.NoPrivateKey;
 import de.tum.in.tumcampusapp.api.app.model.DeviceRegister;
 import de.tum.in.tumcampusapp.api.app.model.DeviceUploadFcmToken;
@@ -167,9 +168,9 @@ public final class TUMCabeClient {
                 .enqueue(cb);
     }
 
-    public void addUserToChat(ChatRoom chatRoom, ChatMember member, TUMCabeVerification verification, Callback<ChatRoom> cb) {
-        service.addUserToChat(chatRoom.getId(), member.getId(), verification)
-                .enqueue(cb);
+    public Single<ChatRoom> addUserToChat(ChatRoom chatRoom,
+                                          ChatMember member, TUMCabeVerification verification) {
+        return service.addUserToChat(chatRoom.getId(), member.getId(), verification);
     }
 
     public Observable<ChatMessage> sendMessage(int roomId, TUMCabeVerification verification) {
@@ -323,14 +324,12 @@ public final class TUMCabeClient {
         return calls;
     }
 
-    public void searchChatMember(String query, Callback<List<ChatMember>> callback) {
-        service.searchMemberByName(query)
-                .enqueue(callback);
+    public Observable<List<ChatMember>> searchChatMember(String query) {
+        return service.searchMemberByName(query);
     }
 
-    public void getChatMemberByLrzId(String lrzId, Callback<ChatMember> callback) {
-        service.getMember(lrzId)
-                .enqueue(callback);
+    public Observable<ChatMember> getChatMemberByLrzId(String lrzId) {
+        return service.getMember(lrzId);
     }
 
     public Observable<List<Cafeteria>> getCafeterias() {

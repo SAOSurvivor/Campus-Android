@@ -90,7 +90,7 @@ public interface TUMCabeAPIService {
     Call<ChatRoom> leaveChatRoom(@Path("room") int roomId, @Body TUMCabeVerification verification);
 
     @POST(API_CHAT_ROOMS + "{room}/add/{member}")
-    Call<ChatRoom> addUserToChat(@Path("room") int roomId, @Path("member") int userId, @Body TUMCabeVerification verification);
+    Single<ChatRoom> addUserToChat(@Path("room") int roomId, @Path("member") int userId, @Body TUMCabeVerification verification);
 
     //Get/Update single message
     @PUT(API_CHAT_ROOMS + "{room}/message/")
@@ -110,10 +110,10 @@ public interface TUMCabeAPIService {
     Call<ChatMember> createMember(@Body ChatMember chatMember);
 
     @GET(API_CHAT_MEMBERS + "{lrz_id}/")
-    Call<ChatMember> getMember(@Path("lrz_id") String lrzId);
+    Observable<ChatMember> getMember(@Path("lrz_id") String lrzId);
 
     @GET(API_CHAT_MEMBERS + "search/{query}/")
-    Call<List<ChatMember>> searchMemberByName(@Path("query") String nameQuery);
+    Observable<List<ChatMember>> searchMemberByName(@Path("query") String nameQuery);
 
     @POST(API_CHAT_MEMBERS + "{memberId}/rooms/")
     Call<List<ChatRoom>> getMemberRooms(@Path("memberId") int memberId, @Body TUMCabeVerification verification);

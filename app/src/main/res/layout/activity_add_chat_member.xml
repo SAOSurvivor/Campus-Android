@@ -17,7 +17,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin">
 
         <AutoCompleteTextView
-            android:id="@+id/chat_user_search"
+            android:id="@+id/userSearchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/user_search_hint"
@@ -38,7 +38,7 @@
         android:text="@string/join_chat_via_qr_code"/>
 
     <ImageView
-        android:id="@+id/join_chat_qr_code"
+        android:id="@+id/joinChatQrCode"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
