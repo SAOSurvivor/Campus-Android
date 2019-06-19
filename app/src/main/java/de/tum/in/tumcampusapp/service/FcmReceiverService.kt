@@ -5,7 +5,7 @@ import androidx.annotation.IntDef
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.general.UpdatePushNotification
 import de.tum.`in`.tumcampusapp.component.other.generic.PushNotification
 import de.tum.`in`.tumcampusapp.component.ui.alarm.AlarmPushNotification
@@ -68,13 +68,7 @@ class FcmReceiverService : FirebaseMessagingService() {
             ALERT -> AlarmPushNotification(payload, appContext, notificationId)
             else -> {
                 // Nothing to do, just confirm the retrieved notificationId
-                try {
-                    TUMCabeClient
-                            .getInstance(this)
-                            .confirm(notificationId)
-                } catch (e: IOException) {
-                    Utils.log(e)
-                }
+                TumCabeClient.getInstance(this).confirm(notificationId)
                 null
             }
         }

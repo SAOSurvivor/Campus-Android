@@ -2,6 +2,8 @@ package de.tum.in.tumcampusapp.component.ui.chat;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -11,9 +13,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.api.tumonline.CacheControl;
 import de.tum.in.tumcampusapp.api.tumonline.TUMOnlineClient;
 import de.tum.in.tumcampusapp.component.tumui.lectures.model.Lecture;
@@ -138,24 +138,15 @@ public class ChatRoomController implements ProvidesCard {
 
             // Join all new chat rooms
             if (Utils.getSettingBool(mContext, Const.AUTO_JOIN_NEW_ROOMS, false)) {
-                TUMCabeClient client = TUMCabeClient.getInstance(mContext);
+                TumCabeClient client = TumCabeClient.getInstance(mContext);
                 List<String> newRooms = this.getNewUnjoined();
 
                 for (String roomId : newRooms) {
                     // Join chat room
-                    try {
-                        ChatRoom currentChatRoom = new ChatRoom(roomId);
-                        TUMCabeVerification verification = TUMCabeVerification.create(mContext, null);
-                        if (verification == null) {
-                            return results;
-                        }
-
-                        currentChatRoom = client.createRoom(currentChatRoom, verification);
-                        if (currentChatRoom != null) {
-                            this.join(currentChatRoom);
-                        }
-                    } catch (IOException e) {
-                        Utils.log(e, " - error occured while creating the room!");
+                    ChatRoom currentChatRoom = new ChatRoom(roomId);
+                    currentChatRoom = client.createRoom(currentChatRoom);
+                    if (currentChatRoom != null) {
+                        this.join(currentChatRoom);
                     }
                 }
             }

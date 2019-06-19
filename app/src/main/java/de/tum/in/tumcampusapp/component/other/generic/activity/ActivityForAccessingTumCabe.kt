@@ -1,6 +1,6 @@
 package de.tum.`in`.tumcampusapp.component.other.generic.activity
 
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.tumonline.TUMOnlineClient
 
 /**
@@ -13,8 +13,8 @@ import de.tum.`in`.tumcampusapp.api.tumonline.TUMOnlineClient
 @Deprecated("Use BaseActivity and a suitable BaseFragment class")
 abstract class ActivityForAccessingTumCabe<T>(layoutId: Int) : ProgressActivity<T>(layoutId) {
 
-    protected val apiClient: TUMCabeClient by lazy {
-        TUMCabeClient.getInstance(this)
+    protected val apiClient: TumCabeClient by lazy {
+        TumCabeClient.getInstance(this)
     }
 
 }

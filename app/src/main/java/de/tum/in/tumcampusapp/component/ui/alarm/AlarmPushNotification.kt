@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import de.tum.`in`.tumcampusapp.R
 import de.tum.`in`.tumcampusapp.api.app.AuthenticationManager
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.generic.PushNotification
 import de.tum.`in`.tumcampusapp.component.ui.alarm.model.FcmAlert
 import de.tum.`in`.tumcampusapp.component.ui.alarm.model.FcmNotification
@@ -38,10 +38,7 @@ class AlarmPushNotification(
     private val alert: FcmAlert = Gson().fromJson(payload, FcmAlert::class.java)
     private val notificationFromServer: FcmNotification?
         get() {
-            return tryOrNull {
-                TUMCabeClient.getInstance(appContext)
-                        .getNotification(notificationId)
-            }
+            return TumCabeClient.getInstance(appContext).getNotification(notificationId)
         }
 
     private lateinit var info: FcmNotification

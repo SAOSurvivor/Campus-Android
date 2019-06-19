@@ -15,6 +15,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+
 import com.google.android.material.button.MaterialButton;
 import com.stripe.android.CustomerSession;
 import com.stripe.android.PaymentConfiguration;
@@ -27,13 +32,8 @@ import com.stripe.android.view.PaymentMethodsActivity;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import de.tum.in.tumcampusapp.R;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
-import de.tum.in.tumcampusapp.api.app.exception.NoPrivateKey;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
 import de.tum.in.tumcampusapp.component.ui.ticket.TicketEphemeralKeyProvider;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.Ticket;
@@ -161,36 +161,30 @@ public class StripePaymentActivity extends BaseActivity {
         String cardholder = cardholderEditText.getText().toString();
         showLoading(true);
 
-        try {
-            String methodId = paymentSession.getPaymentSessionData().getSelectedPaymentMethodId();
-            if (methodId == null) {
-                Utils.showToast(this, R.string.error_something_wrong);
-                return;
-            }
-
-            TUMCabeClient
-                    .getInstance(this)
-                    .purchaseTicketStripe(this, ticketIds,
-                                          methodId, cardholder, new Callback<List<Ticket>>() {
-                        @Override
-                        public void onResponse(@NonNull Call<List<Ticket>> call,
-                                               @NonNull Response<List<Ticket>> response) {
-                            List<Ticket> tickets = response.body();
-                            if (!tickets.isEmpty()) {
-                                handleTicketPurchaseSuccess(tickets);
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(@NonNull Call<List<Ticket>> call, @NonNull Throwable t) {
-                            Utils.log(t);
-                            handleTicketPurchaseFailure();
-                        }
-                    });
-        } catch (NoPrivateKey e) {
-            Utils.log(e);
-            handleTicketPurchaseFailure();
+        String methodId = paymentSession.getPaymentSessionData().getSelectedPaymentMethodId();
+        if (methodId == null) {
+            Utils.showToast(this, R.string.error_something_wrong);
+            return;
         }
+
+        TumCabeClient
+                .getInstance(this)
+                .purchaseTickets(ticketIds, methodId, cardholder, new Callback<List<Ticket>>() {
+                    @Override
+                    public void onResponse(@NonNull Call<List<Ticket>> call,
+                                           @NonNull Response<List<Ticket>> response) {
+                        List<Ticket> tickets = response.body();
+                        if (!tickets.isEmpty()) {
+                            handleTicketPurchaseSuccess(tickets);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<List<Ticket>> call, @NonNull Throwable t) {
+                        Utils.log(t);
+                        handleTicketPurchaseFailure();
+                    }
+                });
     }
 
     private void handleTicketPurchaseSuccess(@NonNull List<Ticket> tickets) {

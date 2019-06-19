@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.general.RecentsDao
 import de.tum.`in`.tumcampusapp.component.other.general.model.Recent
 import de.tum.`in`.tumcampusapp.component.other.generic.adapter.NoResultsAdapter
@@ -13,9 +13,7 @@ import de.tum.`in`.tumcampusapp.component.other.generic.fragment.FragmentForSear
 import de.tum.`in`.tumcampusapp.component.tumui.roomfinder.model.RoomFinderRoom
 import de.tum.`in`.tumcampusapp.database.TcaDb
 import de.tum.`in`.tumcampusapp.utils.NetUtils
-import de.tum.`in`.tumcampusapp.utils.Utils
 import kotlinx.android.synthetic.main.fragment_roomfinder.listView
-import java.io.IOException
 import java.io.Serializable
 import java.util.regex.Pattern
 
@@ -66,14 +64,7 @@ class RoomFinderFragment : FragmentForSearchingInBackground<List<RoomFinderRoom>
     override fun onSearchInBackground(): List<RoomFinderRoom>? = recents
 
     override fun onSearchInBackground(query: String): List<RoomFinderRoom>? {
-        return try {
-            TUMCabeClient
-                .getInstance(requireContext())
-                .fetchRooms(userRoomSearchMatching(query))
-        } catch (e: IOException) {
-            Utils.log(e)
-            null
-        }
+        return TumCabeClient.getInstance(requireContext()).fetchRooms(userRoomSearchMatching(query))
     }
 
     override fun onSearchFinished(result: List<RoomFinderRoom>?) {

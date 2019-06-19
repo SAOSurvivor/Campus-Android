@@ -3,19 +3,20 @@ package de.tum.`in`.tumcampusapp.service
 import android.content.Context
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.iid.FirebaseInstanceId
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.AuthenticationManager
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.app.model.DeviceUploadFcmToken
+import de.tum.`in`.tumcampusapp.api.app.model.RealTumCabeVerificationProvider
 import de.tum.`in`.tumcampusapp.api.app.model.TUMCabeStatus
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_INSTANCE_ID
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_REG_ID_LAST_TRANSMISSION
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_REG_ID_SENT_TO_SERVER
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_TOKEN_ID
 import de.tum.`in`.tumcampusapp.utils.Utils
-import de.tum.`in`.tumcampusapp.utils.tryOrNull
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
+import java.util.Date
 import java.util.concurrent.Executors
 
 object FcmTokenHandler {
@@ -78,11 +79,13 @@ object FcmTokenHandler {
             return
         }
 
-        // Try to create the message
-        val uploadToken = tryOrNull { DeviceUploadFcmToken.getDeviceUploadFcmToken(context, token) }
-                ?: return
+        val verificationProvider = RealTumCabeVerificationProvider(context)
+        val verification = verificationProvider.create() ?: return
+        val signature = AuthenticationManager(context).sign(token)
 
-        TUMCabeClient
+        val uploadToken = DeviceUploadFcmToken(verification, token, signature)
+
+        TumCabeClient
                 .getInstance(context)
                 .deviceUploadGcmToken(uploadToken, object : Callback<TUMCabeStatus> {
                     override fun onResponse(call: Call<TUMCabeStatus>, response: Response<TUMCabeStatus>) {

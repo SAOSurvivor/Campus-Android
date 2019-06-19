@@ -7,7 +7,7 @@ import de.tum.in.tumcampusapp.api.app.model.DeviceRegister;
 import de.tum.in.tumcampusapp.api.app.model.DeviceUploadFcmToken;
 import de.tum.in.tumcampusapp.api.app.model.ObfuscatedIdsUpload;
 import de.tum.in.tumcampusapp.api.app.model.TUMCabeStatus;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
+import de.tum.in.tumcampusapp.api.app.model.TumCabeVerification;
 import de.tum.in.tumcampusapp.api.app.model.UploadStatus;
 import de.tum.in.tumcampusapp.component.other.locations.model.BuildingToGps;
 import de.tum.in.tumcampusapp.component.tumui.feedback.model.Feedback;
@@ -21,17 +21,20 @@ import de.tum.in.tumcampusapp.component.ui.alarm.model.FcmNotificationLocation;
 import de.tum.in.tumcampusapp.component.ui.barrierfree.model.BarrierfreeContact;
 import de.tum.in.tumcampusapp.component.ui.barrierfree.model.BarrierfreeMoreInfo;
 import de.tum.in.tumcampusapp.component.ui.cafeteria.model.Cafeteria;
-import de.tum.in.tumcampusapp.component.ui.openinghour.model.Location;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatMember;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatMessage;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatRoom;
 import de.tum.in.tumcampusapp.component.ui.news.model.News;
 import de.tum.in.tumcampusapp.component.ui.news.model.NewsAlert;
 import de.tum.in.tumcampusapp.component.ui.news.model.NewsSources;
+import de.tum.in.tumcampusapp.component.ui.openinghour.model.Location;
 import de.tum.in.tumcampusapp.component.ui.studyroom.model.StudyRoomGroup;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.Event;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.Ticket;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.TicketType;
+import de.tum.in.tumcampusapp.component.ui.ticket.payload.EphimeralKey;
+import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketPurchaseStripe;
+import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketReservation;
 import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketReservationResponse;
 import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketStatus;
 import de.tum.in.tumcampusapp.component.ui.tufilm.model.Kino;
@@ -43,209 +46,216 @@ import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_BUILDINGS_TO_GPS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_CONTACT;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_LIST_OF_ELEVATORS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_LIST_OF_TOILETS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_MORE_INFO;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_BARRIER_FREE_NERBY_FACILITIES;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_CAFETERIAS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_CHAT_MEMBERS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_CHAT_ROOMS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_DEVICE;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_EVENTS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_FEEDBACK;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_KINOS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_LOCATIONS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_MEMBERS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_NEWS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_NOTIFICATIONS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_OPENING_HOURS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_ROOM_FINDER;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_ROOM_FINDER_AVAILABLE_MAPS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_ROOM_FINDER_COORDINATES;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_ROOM_FINDER_SCHEDULE;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_ROOM_FINDER_SEARCH;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_STUDY_ROOMS;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_TICKET;
-import static de.tum.in.tumcampusapp.api.app.TUMCabeClient.API_UPDATE_NOTE;
+public interface TumCabeApiService {
 
-public interface TUMCabeAPIService {
+    // Group chat
+    @Headers("x-requires-verification: true")
+    @POST("chat/rooms/")
+    Call<ChatRoom> createRoom(@Body ChatRoom data);
 
-    //Group chat
-    @POST(API_CHAT_ROOMS)
-    Call<ChatRoom> createRoom(@Body TUMCabeVerification verification);
-
-    @GET(API_CHAT_ROOMS + "{room}")
+    @GET("chat/rooms/{room}")
     Call<ChatRoom> getChatRoom(@Path("room") int id);
 
-    @POST(API_CHAT_ROOMS + "{room}/leave/")
-    Call<ChatRoom> leaveChatRoom(@Path("room") int roomId, @Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("chat/rooms/{room}/leave/")
+    Call<ChatRoom> leaveChatRoom(@Path("room") int roomId);
 
-    @POST(API_CHAT_ROOMS + "{room}/add/{member}")
-    Call<ChatRoom> addUserToChat(@Path("room") int roomId, @Path("member") int userId, @Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("chat/rooms/{room}/add/{member}")
+    Call<ChatRoom> addUserToChat(
+            @Path("room") int roomId,
+            @Path("member") int userId
+    );
 
-    //Get/Update single message
-    @PUT(API_CHAT_ROOMS + "{room}/message/")
-    Observable<ChatMessage> sendMessage(@Path("room") int roomId, @Body TUMCabeVerification message);
+    // Get/Update single message
+    @Headers("x-requires-verification: true")
+    @PUT("chat/rooms/{room}/message/")
+    Observable<ChatMessage> sendMessage(
+            @Path("room") int roomId,
+            @Body ChatMessage data
+    );
 
-    @PUT(API_CHAT_ROOMS + "{room}/message/{message}/")
-    Observable<ChatMessage> updateMessage(@Path("room") int roomId, @Path("message") int messageId, @Body TUMCabeVerification message);
+    @Headers("x-requires-verification: true")
+    @PUT("chat/rooms/{room}/message/{message}/")
+    Observable<ChatMessage> updateMessage(
+            @Path("room") int roomId,
+            @Path("message") int messageId,
+            @Body ChatMessage data
+    );
 
-    //Get all recent messages or older ones
-    @POST(API_CHAT_ROOMS + "{room}/messages/{page}/")
-    Observable<List<ChatMessage>> getMessages(@Path("room") int roomId, @Path("page") long messageId, @Body TUMCabeVerification verification);
+    // Get all recent messages or older ones
+    @Headers("x-requires-verification: true")
+    @POST("chat/rooms/{room}/messages/{page}/")
+    Observable<List<ChatMessage>> getMessages(
+            @Path("room") int roomId,
+            @Path("page") long messageId
+    );
 
-    @POST(API_CHAT_ROOMS + "{room}/messages/")
-    Observable<List<ChatMessage>> getNewMessages(@Path("room") int roomId, @Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("chat/rooms/{room}/messages/")
+    Observable<List<ChatMessage>> getNewMessages(
+            @Path("room") int roomId
+    );
 
-    @POST(API_CHAT_MEMBERS)
+    @POST("chat/members/")
     Call<ChatMember> createMember(@Body ChatMember chatMember);
 
-    @GET(API_CHAT_MEMBERS + "{lrz_id}/")
+    @GET("chat/members/{lrz_id}/")
     Call<ChatMember> getMember(@Path("lrz_id") String lrzId);
 
-    @GET(API_CHAT_MEMBERS + "search/{query}/")
+    @GET("chat/members/search/{query}/")
     Call<List<ChatMember>> searchMemberByName(@Path("query") String nameQuery);
 
-    @POST(API_CHAT_MEMBERS + "{memberId}/rooms/")
-    Call<List<ChatRoom>> getMemberRooms(@Path("memberId") int memberId, @Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("chat/members/{memberId}/rooms/")
+    Call<List<ChatRoom>> getMemberRooms(
+            @Path("memberId") int memberId
+    );
 
-    @POST(API_MEMBERS + "uploadIds/{lrzId}/")
-    Observable<TUMCabeStatus> uploadObfuscatedIds(@Path("lrzId") String lrzId, @Body ObfuscatedIdsUpload ids);
+    @Headers("x-requires-verification: true")
+    @POST("members/uploadIds/{lrzId}/")
+    Observable<TUMCabeStatus> uploadObfuscatedIds(
+            @Path("lrzId") String lrzId,
+            @Body ObfuscatedIdsUpload ids
+    );
 
-    @GET(API_NOTIFICATIONS + "{notification}/")
+    @GET("notifications/{notification}/")
     Call<FcmNotification> getNotification(@Path("notification") int notification);
 
-    @GET(API_NOTIFICATIONS + "confirm/{notification}/")
+    @GET("notifications/confirm/{notification}/")
     Call<String> confirm(@Path("notification") int notification);
 
-    @GET(API_LOCATIONS + "{locationId}/")
+    @GET("locations/{locationId}/")
     Call<FcmNotificationLocation> getLocation(@Path("locationId") int locationId);
 
-    //Device
-    @POST(API_DEVICE + "register/")
+    // Device
+    @POST("device/register/")
     Call<TUMCabeStatus> deviceRegister(@Body DeviceRegister verification);
 
-    @GET(API_DEVICE + "verifyKey/")
+    @GET("device/verifyKey/")
     Call<TUMCabeStatus> verifyKey();
 
-    @POST(API_DEVICE + "addGcmToken/")
+    @POST("device/addGcmToken/")
     Call<TUMCabeStatus> deviceUploadGcmToken(@Body DeviceUploadFcmToken verification);
 
-    @GET(API_DEVICE + "uploaded/{lrzId}")
+    @GET("device/uploaded/{lrzId}")
     Call<UploadStatus> getUploadStatus(@Path("lrzId") String lrzId);
 
     // Barrier free contacts
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_CONTACT)
+    @GET("barrierfree/contacts/")
     Call<List<BarrierfreeContact>> getBarrierfreeContactList();
 
     // Barrier free More Info
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_MORE_INFO)
+    @GET("barrierfree/moreInformation/")
     Call<List<BarrierfreeMoreInfo>> getMoreInfoList();
 
-    // Barrier free toilets list
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_LIST_OF_TOILETS)
-    Call<List<RoomFinderRoom>> getListOfToilets();
-
     // Barrier free elevator list
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_LIST_OF_ELEVATORS)
+    @GET("barrierfree/listOfElevators/")
     Call<List<RoomFinderRoom>> getListOfElevators();
 
     // Barrier free nearby list
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_NERBY_FACILITIES + "{buildingId}/")
+    @GET("barrierfree/nerby/{buildingId}/")
     Call<List<RoomFinderRoom>> getListOfNearbyFacilities(@Path("buildingId") String buildingId);
 
     // building to gps information
-    @GET(API_BARRIER_FREE + API_BARRIER_FREE_BUILDINGS_TO_GPS)
+    @GET("barrierfree/getBuilding2Gps/")
     Call<List<BuildingToGps>> getBuilding2Gps();
 
-    //RoomFinder maps
-    @GET(API_ROOM_FINDER + API_ROOM_FINDER_AVAILABLE_MAPS + "{archId}")
+    // RoomFinder maps
+    @GET("roomfinder/room/availableMaps/{archId}")
     Call<List<RoomFinderMap>> fetchAvailableMaps(@Path("archId") String archId);
 
-    //RoomFinder maps
-    @GET(API_ROOM_FINDER + API_ROOM_FINDER_SEARCH + "{searchStrings}")
+    // RoomFinder maps
+    @GET("roomfinder/room/search/{searchStrings}")
     Call<List<RoomFinderRoom>> fetchRooms(@Path("searchStrings") String searchStrings);
 
-    //RoomFinder cordinates
-    @GET(API_ROOM_FINDER + API_ROOM_FINDER_COORDINATES + "{archId}")
+    // RoomFinder cordinates
+    @GET("roomfinder/room/coordinates/{archId}")
     Call<RoomFinderCoordinate> fetchCoordinates(@Path("archId") String archId);
 
-    //RoomFinder schedule
-    @GET(API_ROOM_FINDER + API_ROOM_FINDER_SCHEDULE + "{roomId}" + "/" + "{start}" + "/" + "{end}")
+    // RoomFinder schedule
+    @GET("roomfinder/room/scheduleById/{roomId}/{start}/{end}")
     Call<List<RoomFinderSchedule>> fetchSchedule(@Path("roomId") String archId,
                                                  @Path("start") String start, @Path("end") String end);
 
-    @POST(API_FEEDBACK)
+    @POST("feedback/")
     Call<FeedbackResult> sendFeedback(@Body Feedback feedback);
 
     @Multipart
-    @POST(API_FEEDBACK + "{id}/{image}/")
+    @POST("feedback/{id}/{image}/")
     Call<FeedbackResult> sendFeedbackImage(@Part MultipartBody.Part image, @Path("image") int imageNr, @Path("id") String feedbackId);
 
-    @GET(API_CAFETERIAS)
+    @GET("mensen/")
     Observable<List<Cafeteria>> getCafeterias();
 
-    @GET(API_KINOS + "{lastId}")
+    @GET("kino/{lastId}")
     Flowable<List<Kino>> getKinos(@Path("lastId") String lastId);
 
-    @GET(API_NEWS + "{lastNewsId}")
+    @GET("news/{lastNewsId}")
     Call<List<News>> getNews(@Path("lastNewsId") String lastNewsId);
 
-    @GET(API_NEWS + "sources")
+    @GET("news/sources")
     Call<List<NewsSources>> getNewsSources();
 
-    @GET(API_NEWS + "alert")
+    @GET("news/alert")
     Observable<NewsAlert> getNewsAlert();
 
-    @GET(API_STUDY_ROOMS)
+    @GET("studyroom/list")
     Call<List<StudyRoomGroup>> getStudyRoomGroups();
 
     // TICKET SALE
 
     // Getting Event information
 
-    @GET(API_EVENTS + "list")
+    @GET("event/list")
     Observable<List<Event>> getEvents();
 
     // Getting Ticket information
-    @POST(API_EVENTS + API_TICKET + "my")
-    Observable<List<Ticket>> getTickets(@Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("event/ticket/my")
+    Observable<List<Ticket>> getTickets();
 
-    @POST(API_EVENTS + API_TICKET + "{ticketID}")
-    Call<Ticket> getTicket(@Path("ticketID") int ticketID, @Body TUMCabeVerification verification);
+    @POST("event/ticket/{ticketID}")
+    Call<Ticket> getTicket(@Path("ticketID") int ticketID, @Body TumCabeVerification verification);
 
-    @GET(API_EVENTS + API_TICKET + "type/{eventID}")
+    @GET("event/ticket/type/{eventID}")
     Observable<List<TicketType>> getTicketTypes(@Path("eventID") int eventID);
 
     // Ticket reservation
-    @POST(API_EVENTS + API_TICKET + "reserve/multiple")
-    Call<TicketReservationResponse> reserveTicket(@Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("event/ticket/reserve/multiple")
+    Call<TicketReservationResponse> reserveTicket(
+            @Body TicketReservation data
+    );
 
     // Ticket purchase
-    @POST(API_EVENTS + API_TICKET + "payment/stripe/purchase/multiple")
-    Call<List<Ticket>> purchaseTicketStripe(@Body TUMCabeVerification verification);
+    @Headers("x-requires-verification: true")
+    @POST("event/ticket/payment/stripe/purchase/multiple")
+    Call<List<Ticket>> purchaseTicketStripe(
+            @Body TicketPurchaseStripe data
+    );
 
-    @POST(API_EVENTS + API_TICKET + "payment/stripe/ephemeralkey")
-    Call<HashMap<String, Object>> retrieveEphemeralKey(@Body TUMCabeVerification verification);
+    @POST("event/ticket/payment/stripe/ephemeralkey")
+    Call<HashMap<String, Object>> retrieveEphemeralKey(
+            @Body EphimeralKey data
+    );
 
-    @GET(API_EVENTS + API_TICKET + "status/{event}")
+    @GET("event/ticket/status/{event}")
     Single<List<TicketStatus>> getTicketStats(@Path("event") int event);
 
     // Update note
-    @GET(API_UPDATE_NOTE + "{version}")
+    @GET("updatenote/{version}")
     Call<UpdateNote> getUpdateNote(@Path("version") int version);
 
     // Opening Hours
-    @GET(API_OPENING_HOURS + "{language}")
+    @GET("openingtimes/{language}")
     Call<List<Location>> getOpeningHours(@Path("language") String language);
 
 }

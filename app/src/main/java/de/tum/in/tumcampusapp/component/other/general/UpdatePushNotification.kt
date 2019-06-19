@@ -8,18 +8,15 @@ import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-
 import com.google.gson.Gson
-
 import de.tum.`in`.tumcampusapp.BuildConfig
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.generic.PushNotification
 import de.tum.`in`.tumcampusapp.component.ui.alarm.model.FcmNotification
 import de.tum.`in`.tumcampusapp.component.ui.overview.MainActivity
 import de.tum.`in`.tumcampusapp.service.FcmReceiverService.Companion.UPDATE
 import de.tum.`in`.tumcampusapp.utils.Const
-import de.tum.`in`.tumcampusapp.utils.tryOrNull
 
 class UpdatePushNotification(
         payload: String,
@@ -29,10 +26,7 @@ class UpdatePushNotification(
 
     private val data: FcmUpdate? = Gson().fromJson(payload, FcmUpdate::class.java)
     private val notificationFromServer: FcmNotification?
-        get() = tryOrNull {
-            TUMCabeClient.getInstance(appContext)
-                    .getNotification(notificationId)
-        }
+        get() = TumCabeClient.getInstance(appContext).getNotification(notificationId)
 
     init {
         //if (BuildConfig.VERSION_CODE < data.packageVersion) {

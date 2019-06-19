@@ -14,8 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.gson.Gson
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
-import de.tum.`in`.tumcampusapp.api.app.model.TUMCabeVerification
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.generic.PushNotification
 import de.tum.`in`.tumcampusapp.component.ui.chat.activity.ChatActivity
 import de.tum.`in`.tumcampusapp.component.ui.chat.activity.ChatRoomsActivity
@@ -41,10 +40,7 @@ class ChatPushNotification(
 ) : PushNotification(appContext, CHAT_NOTIFICATION, notification, true) {
 
     private val passedChatRoom by lazy {
-        tryOrNull {
-            TUMCabeClient.getInstance(appContext)
-                    .getChatRoom(fcmChatPayload.room)
-        }
+        TumCabeClient.getInstance(appContext).getChatRoom(fcmChatPayload.room)
     }
 
     private val chatMessageDao by lazy {
@@ -73,21 +69,19 @@ class ChatPushNotification(
 
     @SuppressLint("CheckResult")
     private fun getNewMessages(chatRoom: ChatRoom, messageId: Int) {
-        val verification = TUMCabeVerification.create(appContext, null) ?: return
-
         ChatMessageLocalRepository.db = TcaDb.getInstance(appContext)
-        ChatMessageRemoteRepository.tumCabeClient = TUMCabeClient.getInstance(appContext)
+        ChatMessageRemoteRepository.tumCabeClient = TumCabeClient.getInstance(appContext)
         val chatMessageViewModel = ChatMessageViewModel(ChatMessageLocalRepository, ChatMessageRemoteRepository)
 
         if (messageId == -1) {
             chatMessageViewModel
-                    .getNewMessages(chatRoom, verification)
-                    .subscribe({ onDataLoaded() }, { Utils.log(it) })
+                    .getNewMessages(chatRoom)
+                    .subscribe({ onDataLoaded() }, Utils::log)
             return
         }
         chatMessageViewModel
-                .getOlderMessages(chatRoom, messageId.toLong(), verification)
-                .subscribe({ /* Free ad space */ }, { Utils.log(it) })
+                .getOlderMessages(chatRoom, messageId.toLong())
+                .subscribe({ /* Free ad space */ }, Utils::log)
     }
 
     /**

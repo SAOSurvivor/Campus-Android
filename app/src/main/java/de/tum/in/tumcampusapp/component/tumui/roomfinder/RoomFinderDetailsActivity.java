@@ -7,21 +7,20 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AlertDialog;
-
-import android.view.Menu;
-import android.view.MenuItem;
 
 import java.util.List;
 
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.api.app.ApiHelper;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.other.generic.ImageViewTouchFragment;
 import de.tum.in.tumcampusapp.component.other.generic.activity.ActivityForLoadingInBackground;
 import de.tum.in.tumcampusapp.component.other.locations.LocationManager;
@@ -198,7 +197,7 @@ public class RoomFinderDetailsActivity
     private void loadMapList() {
         showLoadingStart();
 
-        mRoomFinderMapsCall = TUMCabeClient.getInstance(this).fetchAvailableMaps(room.getArch_id());
+        mRoomFinderMapsCall = TumCabeClient.getInstance(this).fetchAvailableMaps(room.getArch_id());
         mRoomFinderMapsCall.enqueue(new Callback<List<RoomFinderMap>>() {
             @Override
             public void onResponse(@NonNull Call<List<RoomFinderMap>> call,
@@ -251,7 +250,7 @@ public class RoomFinderDetailsActivity
 
     private void loadGeo() {
         showLoadingStart();
-        mRoomFinderCoordinateCall = TUMCabeClient.getInstance(this)
+        mRoomFinderCoordinateCall = TumCabeClient.getInstance(this)
                 .fetchRoomFinderCoordinates(room.getArch_id());
         mRoomFinderCoordinateCall.enqueue(new Callback<RoomFinderCoordinate>() {
             @Override

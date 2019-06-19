@@ -1,7 +1,7 @@
 package de.tum.`in`.tumcampusapp.component.ui.news
 
 import android.content.Context
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.tumonline.CacheControl
 import de.tum.`in`.tumcampusapp.component.notifications.NotificationScheduler
 import de.tum.`in`.tumcampusapp.component.notifications.ProvidesNotifications
@@ -14,7 +14,6 @@ import de.tum.`in`.tumcampusapp.database.TcaDb
 import de.tum.`in`.tumcampusapp.utils.Utils
 import de.tum.`in`.tumcampusapp.utils.sync.SyncManager
 import org.joda.time.DateTime
-import java.io.IOException
 import javax.inject.Inject
 
 private const val TIME_TO_SYNC = 86400
@@ -71,29 +70,19 @@ class NewsController @Inject constructor(
         // Delete all too old items
         newsDao.cleanUp()
 
-        val api = TUMCabeClient.getInstance(context)
+        val api = TumCabeClient.getInstance(context)
 
         // Load all news sources
-        try {
-            val sources = api.getNewsSources()
-            if (sources != null) {
-                newsSourcesDao.insert(sources)
-            }
-        } catch (e: IOException) {
-            Utils.log(e)
-            return
+        val sources = api.getNewsSources()
+        if (sources != null) {
+            newsSourcesDao.insert(sources)
         }
 
         // Load all news since the last sync
-        try {
-            val news = api.getNews(getLastId())
-            if (news != null) {
-                newsDao.insert(news)
-            }
+        val news = api.getNews(getLastId())
+        if (news != null) {
+            newsDao.insert(news)
             showNewsNotification(news, latestNewsDate)
-        } catch (e: IOException) {
-            Utils.log(e)
-            return
         }
 
         // Finish sync

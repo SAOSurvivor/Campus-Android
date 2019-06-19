@@ -1,15 +1,15 @@
 package de.tum.`in`.tumcampusapp.component.ui.cafeteria.repository
 
 import android.annotation.SuppressLint
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.utils.Utils
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class CafeteriaRemoteRepository @Inject constructor(
-        private val tumCabeClient: TUMCabeClient,
-        private val localRepository: CafeteriaLocalRepository
+    private val tumCabeClient: TumCabeClient,
+    private val localRepository: CafeteriaLocalRepository
 ) {
 
     /**

@@ -14,14 +14,14 @@ import javax.inject.Inject
 class IdUploadAction @Inject constructor(
         private val context: Context,
         private val authManager: AuthenticationManager,
-        private val tumCabeClient: TUMCabeClient
+        private val tumCabeClient: TumCabeClient
 ) : DownloadWorker.Action {
 
     override fun execute(cacheBehaviour: CacheControl) {
         val lrzId = Utils.getSetting(context, Const.LRZ_ID, "")
 
         val uploadStatus = tumCabeClient.getUploadStatus(lrzId) ?: return
-        Utils.log("upload missing ids: " + uploadStatus.toString())
+        Utils.log("upload missing ids: $uploadStatus")
 
         // upload FCM Token if not uploaded or invalid
         if (uploadStatus.fcmToken != UploadStatus.UPLOADED) {

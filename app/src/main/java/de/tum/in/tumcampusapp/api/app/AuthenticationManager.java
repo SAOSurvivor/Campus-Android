@@ -5,6 +5,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Base64;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -19,13 +21,11 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
 import de.tum.in.tumcampusapp.api.app.exception.NoPrivateKey;
 import de.tum.in.tumcampusapp.api.app.exception.NoPublicKey;
 import de.tum.in.tumcampusapp.api.app.model.DeviceRegister;
 import de.tum.in.tumcampusapp.api.app.model.ObfuscatedIdsUpload;
 import de.tum.in.tumcampusapp.api.app.model.TUMCabeStatus;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
 import de.tum.in.tumcampusapp.api.app.model.UploadStatus;
 import de.tum.in.tumcampusapp.api.tumonline.TUMOnlineClient;
 import de.tum.in.tumcampusapp.api.tumonline.model.TokenConfirmation;
@@ -64,8 +64,7 @@ public class AuthenticationManager {
         if (uniqueID == null) {
             uniqueID = Utils.getSetting(context, Const.PREF_UNIQUE_ID, "");
             if ("".equals(uniqueID)) {
-                uniqueID = UUID.randomUUID()
-                               .toString();
+                uniqueID = UUID.randomUUID().toString();
                 Utils.setSetting(context, Const.PREF_UNIQUE_ID, uniqueID);
             }
         }
@@ -199,7 +198,7 @@ public class AuthenticationManager {
             DeviceRegister dr = DeviceRegister.Companion.getDeviceRegister(mContext, publicKey, member);
 
             // Upload public key to the server
-            TUMCabeClient.getInstance(mContext).deviceRegister(dr, new Callback<TUMCabeStatus>() {
+            TumCabeClient.getInstance(mContext).deviceRegister(dr, new Callback<TUMCabeStatus>() {
                 @Override
                 public void onResponse(@NonNull Call<TUMCabeStatus> call,
                                        @NonNull Response<TUMCabeStatus> response) {
@@ -275,18 +274,13 @@ public class AuthenticationManager {
             return;
         }
 
-        TUMCabeVerification verification = TUMCabeVerification.create(mContext, null);
-        if (verification == null) {
-            Utils.log("Can't upload obfuscated ids: no private key");
-            return;
-        }
-
-        ObfuscatedIdsUpload upload = new ObfuscatedIdsUpload("", "", "", verification);
+        ObfuscatedIdsUpload upload = new ObfuscatedIdsUpload();
         String studentId = Utils.getSetting(mContext, Const.TUMO_STUDENT_ID, "");
         String employeeId = Utils.getSetting(mContext, Const.TUMO_EMPLOYEE_ID, "");
         String externalId = Utils.getSetting(mContext, Const.TUMO_EXTERNAL_ID, "");
 
         boolean doUpload = false;
+
         if (!uploadStatus.getStudentId() && !studentId.isEmpty()) {
             upload.setStudentId(studentId);
             doUpload = true;
@@ -302,7 +296,7 @@ public class AuthenticationManager {
 
         if (doUpload) {
             Utils.log("uploading obfuscated ids: " + upload.toString());
-            TUMCabeClient.getInstance(mContext)
+            TumCabeClient.getInstance(mContext)
                     .uploadObfuscatedIds(lrzId, upload)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

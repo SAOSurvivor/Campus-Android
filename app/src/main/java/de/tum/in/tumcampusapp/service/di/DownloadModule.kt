@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import de.tum.`in`.tumcampusapp.api.app.AuthenticationManager
 import de.tum.`in`.tumcampusapp.api.app.IdUploadAction
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.tumui.grades.GradesBackgroundUpdater
 import de.tum.`in`.tumcampusapp.component.tumui.grades.GradesDownloadAction
 import de.tum.`in`.tumcampusapp.component.ui.cafeteria.CafeteriaDownloadAction
@@ -50,7 +50,7 @@ object DownloadModule {
     fun provideLocationImportAction(
             context: Context,
             database: TcaDb,
-            tumCabeClient: TUMCabeClient
+            tumCabeClient: TumCabeClient
     ): LocationImportAction = LocationImportAction(context, database, tumCabeClient)
 
     @JvmStatic
@@ -70,7 +70,7 @@ object DownloadModule {
     fun provideIdUploadAction(
             context: Context,
             authManager: AuthenticationManager,
-            tumCabeClient: TUMCabeClient
+            tumCabeClient: TumCabeClient
     ): IdUploadAction = IdUploadAction(context, authManager, tumCabeClient)
 
     @JvmStatic

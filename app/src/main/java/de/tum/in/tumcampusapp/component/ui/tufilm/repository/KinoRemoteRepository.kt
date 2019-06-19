@@ -1,15 +1,15 @@
 package de.tum.`in`.tumcampusapp.component.ui.tufilm.repository
 
 import android.annotation.SuppressLint
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.utils.Utils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class KinoRemoteRepository @Inject constructor(
-        private val tumCabeClient: TUMCabeClient,
-        private val localRepository: KinoLocalRepository
+    private val tumCabeClient: TumCabeClient,
+    private val localRepository: KinoLocalRepository
 ) {
 
     /**

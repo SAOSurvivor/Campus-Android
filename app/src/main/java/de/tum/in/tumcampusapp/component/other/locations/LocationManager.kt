@@ -9,7 +9,7 @@ import android.preference.PreferenceManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.other.locations.model.BuildingToGps
 import de.tum.`in`.tumcampusapp.component.other.locations.model.Geo
 import de.tum.`in`.tumcampusapp.component.tumui.calendar.CalendarController
@@ -19,11 +19,9 @@ import de.tum.`in`.tumcampusapp.component.ui.transportation.model.efa.StationRes
 import de.tum.`in`.tumcampusapp.database.TcaDb
 import de.tum.`in`.tumcampusapp.utils.Const
 import de.tum.`in`.tumcampusapp.utils.Utils
-import de.tum.`in`.tumcampusapp.utils.tryOrNull
 import org.jetbrains.anko.doAsync
-import java.io.IOException
 import java.lang.Double.parseDouble
-import java.util.*
+import java.util.LinkedList
 import javax.inject.Inject
 
 /**
@@ -224,7 +222,7 @@ class LocationManager @Inject constructor(c: Context) {
             return results
         }
 
-        val newResults = tryOrNull { TUMCabeClient.getInstance(mContext).building2Gps }
+        val newResults = TumCabeClient.getInstance(mContext).building2Gps
         return newResults.orEmpty().also {
             buildingToGpsDao.insert(*it.toTypedArray())
         }
@@ -287,13 +285,8 @@ class LocationManager @Inject constructor(c: Context) {
      * @return Location or null on failure
      */
     private fun fetchRoomGeo(archId: String): Geo? {
-        return try {
-            val coordinate = TUMCabeClient.getInstance(mContext).fetchCoordinates(archId)
-            coordinate?.let { convertRoomFinderCoordinateToGeo(it) }
-        } catch (e: IOException) {
-            Utils.log(e)
-            null
-        }
+        val coordinate = TumCabeClient.getInstance(mContext).fetchCoordinates(archId)
+        return coordinate?.let { convertRoomFinderCoordinateToGeo(it) }
     }
 
     /**
@@ -310,16 +303,10 @@ class LocationManager @Inject constructor(c: Context) {
                     .trim { it <= ' ' }
         }
 
-        try {
-            val rooms = TUMCabeClient.getInstance(mContext).fetchRooms(loc)
-
-            if (rooms != null && !rooms.isEmpty()) {
-                val room = rooms[0].arch_id
-                return fetchRoomGeo(room)
-            }
-
-        } catch (e: Exception) {
-            Utils.log(e)
+        val rooms = TumCabeClient.getInstance(mContext).fetchRooms(loc)
+        if (rooms != null && rooms.isNotEmpty()) {
+            val room = rooms[0].arch_id
+            return fetchRoomGeo(room)
         }
         return null
     }

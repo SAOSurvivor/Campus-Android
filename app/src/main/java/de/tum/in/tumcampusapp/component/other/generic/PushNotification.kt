@@ -3,7 +3,7 @@ package de.tum.`in`.tumcampusapp.component.other.generic
 import android.app.Notification
 import android.content.Context
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.service.FcmReceiverService.Companion.PushNotificationType
 import de.tum.`in`.tumcampusapp.utils.Utils
 import java.io.IOException
@@ -41,7 +41,7 @@ abstract class PushNotification(protected val appContext: Context,
             return
         }
         Utils.logv("Confirmed notificationId $notificationId")
-        TUMCabeClient.getInstance(appContext)
+        TumCabeClient.getInstance(appContext)
                 .confirm(notificationId)
     }
 }

@@ -8,22 +8,21 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
 import de.tum.in.tumcampusapp.R;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
 import de.tum.in.tumcampusapp.component.other.generic.adapter.EqualSpacingItemDecoration;
 import de.tum.in.tumcampusapp.component.ui.ticket.TicketAmountViewHolder;
 import de.tum.in.tumcampusapp.component.ui.ticket.adapter.TicketAmountAdapter;
-import de.tum.in.tumcampusapp.component.ui.ticket.di.TicketsModule;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.Event;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.TicketType;
 import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketReservation;
@@ -216,15 +215,8 @@ public class BuyTicketActivity extends BaseActivity implements TicketAmountViewH
 
         TicketReservation reservation = new TicketReservation(getTicketTypeIds(), currentTicketAmounts);
 
-        TUMCabeVerification verification = TUMCabeVerification.create(this, reservation);
-        if (verification == null) {
-            handleTicketReservationFailure(R.string.internal_error);
-            return;
-        }
-
-        TUMCabeClient
-                .getInstance(this)
-                .reserveTicket(verification, new Callback<TicketReservationResponse>() {
+        TumCabeClient.getInstance(this).reserveTicket(reservation,
+                new Callback<TicketReservationResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<TicketReservationResponse> call,
                                            @NonNull Response<TicketReservationResponse> response) {
@@ -232,8 +224,8 @@ public class BuyTicketActivity extends BaseActivity implements TicketAmountViewH
                         // but has not fetched it from the server yet
                         TicketReservationResponse reservationResponse = response.body();
                         if (response.isSuccessful()
-                            && reservationResponse != null
-                            && reservationResponse.getError() == null) {
+                                && reservationResponse != null
+                                && reservationResponse.getError() == null) {
                             handleTicketReservationSuccess(reservationResponse);
                         } else {
                             if (reservationResponse == null || !response.isSuccessful()) {

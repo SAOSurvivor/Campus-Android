@@ -9,14 +9,15 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.CheckBox;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
 import java.util.List;
 
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.api.app.AuthenticationManager;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.api.app.model.TUMCabeStatus;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
 import de.tum.in.tumcampusapp.api.app.model.UploadStatus;
 import de.tum.in.tumcampusapp.api.tumonline.AccessTokenManager;
 import de.tum.in.tumcampusapp.component.other.generic.activity.ActivityForLoadingInBackground;
@@ -87,6 +88,7 @@ public class WizNavExtrasActivity extends ActivityForLoadingInBackground<Void, C
         startActivity(intent);
     }
 
+    @Nullable
     @Override
     protected ChatMember onLoadInBackground(Void... arg) {
         if (!NetUtils.isConnected(this)) {
@@ -94,7 +96,7 @@ public class WizNavExtrasActivity extends ActivityForLoadingInBackground<Void, C
             return null;
         }
 
-        TUMCabeClient tumCabeClient = TUMCabeClient.getInstance(this);
+        TumCabeClient tumCabeClient = TumCabeClient.getInstance(this);
 
         // by now we should have generated rsa key and uploaded it to our server and tumonline
 
@@ -106,22 +108,12 @@ public class WizNavExtrasActivity extends ActivityForLoadingInBackground<Void, C
         ChatMember currentChatMember = new ChatMember(lrzId);
         currentChatMember.setDisplayName(name);
 
-        if (currentChatMember.getLrzId().equals("")) {
+        if (currentChatMember.getLrzId().isEmpty()) {
             return currentChatMember;
         }
 
         // Tell the server the new member
-        ChatMember member;
-        try {
-            // After the user has entered their display name, send a request to the server to create the new member
-            member = tumCabeClient.createMember(currentChatMember);
-        } catch (IOException e) {
-            Utils.log(e);
-            Utils.showToastOnUIThread(this, R.string.error_setup_chat_member);
-            return null;
-        }
-
-        //Catch a possible error, when we didn't get something returned
+        ChatMember member = tumCabeClient.createMember(currentChatMember);
         if (member == null || member.getLrzId() == null) {
             Utils.showToastOnUIThread(this, R.string.error_setup_chat_member);
             return null;
@@ -134,24 +126,21 @@ public class WizNavExtrasActivity extends ActivityForLoadingInBackground<Void, C
         }
 
         // Try to restore already joined chat rooms from server
-        try {
-            TUMCabeVerification verification = TUMCabeVerification.create(this, null);
-            List<ChatRoom> rooms = tumCabeClient.getMemberRooms(member.getId(), verification);
-            new ChatRoomController(this).replaceIntoRooms(rooms);
-
-            // upload obfuscated ids now that we have a member
-            UploadStatus uploadStatus = TUMCabeClient.getInstance(this)
-                    .getUploadStatus(Utils.getSetting(this, Const.LRZ_ID, ""));
-            if (uploadStatus != null) {
-                new AuthenticationManager(this).uploadObfuscatedIds(uploadStatus);
-            }
-
-            return member;
-        } catch (IOException e) {
-            Utils.log(e);
+        List<ChatRoom> rooms = tumCabeClient.getMemberRooms(member.getId());
+        if (rooms == null) {
+            return null;
         }
 
-        return null;
+        new ChatRoomController(this).replaceIntoRooms(rooms);
+
+        // upload obfuscated ids now that we have a member
+        UploadStatus uploadStatus = TumCabeClient.getInstance(this)
+                .getUploadStatus(Utils.getSetting(this, Const.LRZ_ID, ""));
+        if (uploadStatus != null) {
+            new AuthenticationManager(this).uploadObfuscatedIds(uploadStatus);
+        }
+
+        return member;
     }
 
     @Override

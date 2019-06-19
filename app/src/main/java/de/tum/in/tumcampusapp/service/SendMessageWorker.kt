@@ -5,7 +5,7 @@ import androidx.work.*
 import androidx.work.ListenableWorker.Result.*
 import androidx.work.NetworkType.CONNECTED
 import de.tum.`in`.tumcampusapp.api.app.AuthenticationManager
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.app.exception.NoPrivateKey
 import de.tum.`in`.tumcampusapp.component.ui.chat.ChatMessageViewModel
 import de.tum.`in`.tumcampusapp.component.ui.chat.repository.ChatMessageLocalRepository
@@ -21,7 +21,7 @@ class SendMessageWorker(context: Context, workerParams: WorkerParameters) :
         Worker(context, workerParams) {
 
     private val tcaDb by lazy { TcaDb.getInstance(applicationContext) }
-    private val tumCabeClient by lazy { TUMCabeClient.getInstance(applicationContext) }
+    private val tumCabeClient by lazy { TumCabeClient.getInstance(applicationContext) }
     private val authenticationManager by lazy { AuthenticationManager(applicationContext) }
 
     override fun doWork(): ListenableWorker.Result {

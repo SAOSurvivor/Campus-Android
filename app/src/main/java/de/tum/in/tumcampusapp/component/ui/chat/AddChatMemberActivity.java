@@ -10,16 +10,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.api.app.ApiHelper;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatMember;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatRoom;
@@ -37,7 +37,7 @@ public class AddChatMemberActivity extends BaseActivity {
     private static final int THRESHOLD = 3; // min number of characters before getting suggestions
     private static final int DELAY = 1000; // millis after user stopped typing before getting suggestions
     private ChatRoom room;
-    private TUMCabeClient tumCabeClient;
+    private TumCabeClient tumCabeClient;
     private Pattern tumIdPattern;
     private AutoCompleteTextView searchView;
 
@@ -62,7 +62,7 @@ public class AddChatMemberActivity extends BaseActivity {
         room.setId(getIntent().getIntExtra(Const.CURRENT_CHAT_ROOM, -1));
         Utils.log("ChatRoom: " + room.getTitle() + " (roomId: " + room.getId() + ")");
 
-        tumCabeClient = TUMCabeClient.getInstance(this);
+        tumCabeClient = TumCabeClient.getInstance(this);
 
         searchView = findViewById(R.id.chat_user_search);
         searchView.setThreshold(THRESHOLD);
@@ -205,33 +205,26 @@ public class AddChatMemberActivity extends BaseActivity {
     }
 
     private void joinRoom(ChatMember member) {
-        TUMCabeVerification verification = TUMCabeVerification.create(this, null);
-        if (verification == null) {
-            Utils.showToast(this, R.string.error);
-            return;
-        }
+        TumCabeClient.getInstance(this).addUserToChat(room, member, new Callback<ChatRoom>() {
+            @Override
+            public void onResponse(@NonNull Call<ChatRoom> call,
+                                   @NonNull Response<ChatRoom> response) {
+                ChatRoom room = response.body();
+                if (room != null) {
+                    TcaDb.getInstance(getBaseContext())
+                            .chatRoomDao()
+                            .updateMemberCount(room.getMembers(), room.getId());
+                    Utils.showToast(getBaseContext(), R.string.chat_member_added);
+                } else {
+                    Utils.showToast(getBaseContext(), R.string.error_something_wrong);
+                }
+            }
 
-        TUMCabeClient.getInstance(this)
-                .addUserToChat(room, member, verification, new Callback<ChatRoom>() {
-                    @Override
-                    public void onResponse(@NonNull Call<ChatRoom> call,
-                                           @NonNull Response<ChatRoom> response) {
-                        ChatRoom room = response.body();
-                        if (room != null) {
-                            TcaDb.getInstance(getBaseContext())
-                                    .chatRoomDao()
-                                    .updateMemberCount(room.getMembers(), room.getId());
-                            Utils.showToast(getBaseContext(), R.string.chat_member_added);
-                        } else {
-                            Utils.showToast(getBaseContext(), R.string.error_something_wrong);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<ChatRoom> call, @NonNull Throwable t) {
-                        Utils.showToast(getBaseContext(), R.string.error);
-                    }
-                });
+            @Override
+            public void onFailure(@NonNull Call<ChatRoom> call, @NonNull Throwable t) {
+                Utils.showToast(getBaseContext(), R.string.error);
+            }
+        });
     }
 
 }

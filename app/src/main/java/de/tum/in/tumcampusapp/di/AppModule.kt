@@ -7,7 +7,9 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
+import de.tum.`in`.tumcampusapp.api.app.model.RealTumCabeVerificationProvider
+import de.tum.`in`.tumcampusapp.api.app.model.TumCabeVerificationProvider
 import de.tum.`in`.tumcampusapp.api.tumonline.TUMOnlineClient
 import de.tum.`in`.tumcampusapp.component.ui.news.RealTopNewsStore
 import de.tum.`in`.tumcampusapp.component.ui.news.TopNewsStore
@@ -23,7 +25,15 @@ abstract class AppModule {
 
     @Singleton
     @Binds
-    abstract fun bindTopNewsStore(impl: RealTopNewsStore): TopNewsStore
+    abstract fun bindTopNewsStore(
+        impl: RealTopNewsStore
+    ): TopNewsStore
+
+    @Singleton
+    @Binds
+    abstract fun bindTumCabeVerificationProvider(
+        impl: RealTumCabeVerificationProvider
+    ): TumCabeVerificationProvider
 
     @Module
     companion object {
@@ -40,7 +50,7 @@ abstract class AppModule {
         @Provides
         fun provideTUMCabeClient(
             context: Context
-        ): TUMCabeClient = TUMCabeClient.getInstance(context)
+        ): TumCabeClient = TumCabeClient.getInstance(context)
 
         @JvmStatic
         @Singleton

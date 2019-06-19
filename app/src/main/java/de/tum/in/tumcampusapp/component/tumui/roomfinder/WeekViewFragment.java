@@ -28,11 +28,10 @@ import java.util.Locale;
 import java.util.Map;
 
 import de.tum.in.tumcampusapp.R;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.tumui.calendar.WidgetCalendarItem;
 import de.tum.in.tumcampusapp.component.tumui.roomfinder.model.RoomFinderSchedule;
 import de.tum.in.tumcampusapp.utils.Const;
-import de.tum.in.tumcampusapp.utils.Utils;
 
 public class WeekViewFragment extends Fragment implements MonthChangeListener<WidgetCalendarItem> {
 
@@ -116,29 +115,23 @@ public class WeekViewFragment extends Fragment implements MonthChangeListener<Wi
 
     private List<WeekViewDisplayable<WidgetCalendarItem>> fetchEventList(
             String roomId, String startDate, String endDate) {
-        try {
-            List<RoomFinderSchedule> schedules = TUMCabeClient
-                    .getInstance(requireActivity())
-                    .fetchSchedule(roomId, startDate, endDate);
+        List<RoomFinderSchedule> schedules = TumCabeClient
+                .getInstance(requireActivity())
+                .fetchSchedule(roomId, startDate, endDate);
 
-            if (schedules == null) {
-                return Collections.emptyList();
-            }
-
-            // Convert to the proper type
-            List<WeekViewDisplayable<WidgetCalendarItem>> events = new ArrayList<>();
-            for (RoomFinderSchedule schedule : schedules) {
-                WidgetCalendarItem calendarItem = WidgetCalendarItem.create(schedule);
-                calendarItem.setColor(ContextCompat.getColor(requireContext(), R.color.event_lecture));
-                events.add(calendarItem);
-            }
-
-            return events;
-        } catch (Exception e) {
-            Utils.log(e);
+        if (schedules == null) {
+            return Collections.emptyList();
         }
 
-        return Collections.emptyList();
+        // Convert to the proper type
+        List<WeekViewDisplayable<WidgetCalendarItem>> events = new ArrayList<>();
+        for (RoomFinderSchedule schedule : schedules) {
+            WidgetCalendarItem calendarItem = WidgetCalendarItem.create(schedule);
+            calendarItem.setColor(ContextCompat.getColor(requireContext(), R.color.event_lecture));
+            events.add(calendarItem);
+        }
+
+        return events;
     }
 
 }

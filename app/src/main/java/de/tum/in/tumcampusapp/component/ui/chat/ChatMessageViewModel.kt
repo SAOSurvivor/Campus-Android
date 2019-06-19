@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import de.tum.`in`.tumcampusapp.api.app.model.TUMCabeVerification
 import de.tum.`in`.tumcampusapp.component.ui.chat.model.ChatMessage
 import de.tum.`in`.tumcampusapp.component.ui.chat.model.ChatRoom
 import de.tum.`in`.tumcampusapp.component.ui.chat.repository.ChatMessageLocalRepository
@@ -36,19 +35,17 @@ class ChatMessageViewModel(
         return localRepository.getUnsentInChatRoom(room.id)
     }
 
-    fun getOlderMessages(room: ChatRoom, messageId: Long,
-                         verification: TUMCabeVerification): Observable<List<ChatMessage>> {
+    fun getOlderMessages(room: ChatRoom, messageId: Long): Observable<List<ChatMessage>> {
         return remoteRepository
-                .getMessages(room.id, messageId, verification)
+                .getMessages(room.id, messageId)
                 .subscribeOn(Schedulers.io())
                 .doOnNext { localRepository.replaceMessages(it) }
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getNewMessages(room: ChatRoom,
-                       verification: TUMCabeVerification): Observable<List<ChatMessage>> {
+    fun getNewMessages(room: ChatRoom): Observable<List<ChatMessage>> {
         return remoteRepository
-                .getNewMessages(room.id, verification)
+                .getNewMessages(room.id)
                 .subscribeOn(Schedulers.io())
                 .doOnNext { localRepository.replaceMessages(it) }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -56,9 +53,7 @@ class ChatMessageViewModel(
 
     fun sendMessage(roomId: Int, chatMessage: ChatMessage, context: Context): Disposable {
         val broadcastManager = LocalBroadcastManager.getInstance(context)
-        val verification = TUMCabeVerification.create(context, chatMessage)
-
-        return remoteRepository.sendMessage(roomId, verification)
+        return remoteRepository.sendMessage(roomId, chatMessage)
                 .subscribeOn(Schedulers.io())
                 .subscribe({ message ->
                     message.sendingStatus = ChatMessage.STATUS_SENT

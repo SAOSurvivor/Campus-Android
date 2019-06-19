@@ -19,8 +19,7 @@ import androidx.core.app.ActivityCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
-import de.tum.`in`.tumcampusapp.api.app.model.TUMCabeVerification
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.tumonline.CacheControl
 import de.tum.`in`.tumcampusapp.api.tumonline.CacheControl.BYPASS_CACHE
 import de.tum.`in`.tumcampusapp.api.tumonline.CacheControl.USE_CACHE
@@ -42,8 +41,6 @@ import org.jetbrains.anko.support.v4.runOnUiThread
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
-import java.net.UnknownHostException
 
 class ChatRoomsFragment : FragmentForAccessingTumOnline<LecturesResponse>(
     R.layout.fragment_chat_rooms,
@@ -121,27 +118,13 @@ class ChatRoomsFragment : FragmentForAccessingTumOnline<LecturesResponse>(
 
         val currentChatMember = currentChatMember
         if (currentChatMember != null) {
-            try {
-                val verification = TUMCabeVerification.create(requireContext(), null)
-                if (verification == null) {
-                    requireActivity().finish()
-                    return
-                }
-
-                val rooms = TUMCabeClient
-                    .getInstance(requireContext())
-                    .getMemberRooms(currentChatMember.id, verification)
-                manager.replaceIntoRooms(rooms)
-            } catch (e: IOException) {
-                Utils.log(e)
-
-                if (e is UnknownHostException) {
-                    showErrorSnackbar(R.string.error_no_internet_connection)
-                } else {
-                    showErrorSnackbar(R.string.error_something_wrong)
-                }
+            val rooms = TumCabeClient.getInstance(requireContext()).getMemberRooms(currentChatMember.id)
+            if (rooms == null) {
+                showErrorSnackbar(R.string.error_something_wrong)
+                return
             }
 
+            manager.replaceIntoRooms(rooms)
         }
 
         val chatRoomAndLastMessages = manager.getAllByStatus(currentMode)
@@ -197,12 +180,6 @@ class ChatRoomsFragment : FragmentForAccessingTumOnline<LecturesResponse>(
 
         currentChatRoom = ChatRoom(name)
 
-        val verification = TUMCabeVerification.create(requireContext(), null)
-        if (verification == null) {
-            requireActivity().finish()
-            return
-        }
-
         val callback = object : Callback<ChatRoom> {
             override fun onResponse(call: Call<ChatRoom>, response: Response<ChatRoom>) {
                 if (!response.isSuccessful) {
@@ -235,9 +212,9 @@ class ChatRoomsFragment : FragmentForAccessingTumOnline<LecturesResponse>(
             }
         }
 
-        TUMCabeClient
+        TumCabeClient
             .getInstance(requireContext())
-            .createRoom(currentChatRoom, verification, callback)
+            .createRoom(currentChatRoom, callback)
     }
 
     /**

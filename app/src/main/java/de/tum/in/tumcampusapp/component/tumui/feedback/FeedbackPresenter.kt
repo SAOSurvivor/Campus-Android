@@ -16,7 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import de.tum.`in`.tumcampusapp.R
-import de.tum.`in`.tumcampusapp.api.app.TUMCabeClient
+import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.component.tumui.feedback.di.LrzId
 import de.tum.`in`.tumcampusapp.component.tumui.feedback.model.Feedback
 import de.tum.`in`.tumcampusapp.component.tumui.feedback.model.FeedbackResult
@@ -35,7 +35,7 @@ import javax.inject.Inject
 class FeedbackPresenter @Inject constructor(
     private val context: Context,
     @LrzId override val lrzId: String,
-    private val tumCabeClient: TUMCabeClient
+    private val tumCabeClient: TumCabeClient
 ): FeedbackContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()

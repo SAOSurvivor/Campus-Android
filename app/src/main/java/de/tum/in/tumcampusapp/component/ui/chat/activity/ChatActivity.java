@@ -19,6 +19,12 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.work.WorkManager;
+
 import com.google.gson.Gson;
 
 import org.jetbrains.annotations.Nullable;
@@ -26,14 +32,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collections;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.work.WorkManager;
 import de.tum.in.tumcampusapp.R;
-import de.tum.in.tumcampusapp.api.app.TUMCabeClient;
-import de.tum.in.tumcampusapp.api.app.model.TUMCabeVerification;
+import de.tum.in.tumcampusapp.api.app.TumCabeClient;
 import de.tum.in.tumcampusapp.component.other.generic.activity.ActivityForDownloadingExternal;
 import de.tum.in.tumcampusapp.component.ui.chat.AddChatMemberActivity;
 import de.tum.in.tumcampusapp.component.ui.chat.ChatMessageViewModel;
@@ -126,7 +126,7 @@ public class ChatActivity extends ActivityForDownloadingExternal
         TcaDb tcaDb = TcaDb.getInstance(this);
 
         ChatMessageRemoteRepository remoteRepository = ChatMessageRemoteRepository.INSTANCE;
-        remoteRepository.setTumCabeClient(TUMCabeClient.getInstance(this));
+        remoteRepository.setTumCabeClient(TumCabeClient.getInstance(this));
 
         ChatMessageLocalRepository localRepository = ChatMessageLocalRepository.INSTANCE;
         localRepository.setDb(tcaDb);
@@ -312,13 +312,8 @@ public class ChatActivity extends ActivityForDownloadingExternal
     }
 
     private void leaveChatRoom() {
-        TUMCabeVerification verification = TUMCabeVerification.create(this, null);
-        if (verification == null) {
-            return;
-        }
-
-        TUMCabeClient.getInstance(this)
-                .leaveChatRoom(currentChatRoom, verification, new Callback<ChatRoom>() {
+        TumCabeClient.getInstance(this)
+                .leaveChatRoom(currentChatRoom, new Callback<ChatRoom>() {
                     @Override
                     public void onResponse(@NonNull Call<ChatRoom> call,
                                            @NonNull Response<ChatRoom> response) {
@@ -415,20 +410,15 @@ public class ChatActivity extends ActivityForDownloadingExternal
     private void getNextHistoryFromServer(boolean hasNewMessage) {
         isLoadingMore = true;
 
-        TUMCabeVerification verification = TUMCabeVerification.create(this, null);
-        if (verification == null) {
-            return;
-        }
-
         Observable<List<ChatMessage>> observable;
 
         if (hasNewMessage || chatHistoryAdapter.isEmpty()) {
-            observable = chatMessageViewModel.getNewMessages(currentChatRoom, verification);
+            observable = chatMessageViewModel.getNewMessages(currentChatRoom);
             //chatMessageViewModel.getNewMessages(currentChatRoom.getId(), verification, this::onMessagesLoaded);
         } else {
             ChatMessage latestMessage = chatHistoryAdapter.getItem(0);
             long latestId = latestMessage.getId();
-            observable = chatMessageViewModel.getOlderMessages(currentChatRoom, latestId, verification);
+            observable = chatMessageViewModel.getOlderMessages(currentChatRoom, latestId);
             //chatMessageViewModel.getOlderMessages(currentChatRoom.getId(), latestId, verification, this::onMessagesLoaded);
         }
 
