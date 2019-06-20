@@ -16,6 +16,8 @@ import com.squareup.picasso.RequestCreator
 import de.tum.`in`.tumcampusapp.component.other.generic.drawer.NavItem
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import okhttp3.RequestBody
+import okio.Buffer
 
 /**
  * Executes the block and return null in case of an [Exception].
@@ -148,4 +150,12 @@ fun <T1, T2> List<T1>.splitOnChanged(transform: (T1) -> T2): List<List<T1>> {
     return results.toList()
 }
 
+fun RequestBody.string(): String {
+    val buffer = Buffer()
+    writeTo(buffer)
+    return buffer.readUtf8()
+}
 
+fun RequestBody.isNotEmpty(): Boolean {
+    return contentLength() > 0L
+}

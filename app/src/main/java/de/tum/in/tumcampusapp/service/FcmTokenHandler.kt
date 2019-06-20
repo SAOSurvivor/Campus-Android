@@ -3,11 +3,13 @@ package de.tum.`in`.tumcampusapp.service
 import android.content.Context
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.iid.FirebaseInstanceId
+import com.google.gson.Gson
 import de.tum.`in`.tumcampusapp.api.app.AuthenticationManager
 import de.tum.`in`.tumcampusapp.api.app.TumCabeClient
 import de.tum.`in`.tumcampusapp.api.app.model.DeviceUploadFcmToken
 import de.tum.`in`.tumcampusapp.api.app.model.RealTumCabeVerificationProvider
 import de.tum.`in`.tumcampusapp.api.app.model.TUMCabeStatus
+import de.tum.`in`.tumcampusapp.api.app.model.TumCabeVerification
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_INSTANCE_ID
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_REG_ID_LAST_TRANSMISSION
 import de.tum.`in`.tumcampusapp.utils.Const.FCM_REG_ID_SENT_TO_SERVER
@@ -83,7 +85,8 @@ object FcmTokenHandler {
         val verification = verificationProvider.create() ?: return
         val signature = AuthenticationManager(context).sign(token)
 
-        val uploadToken = DeviceUploadFcmToken(verification, token, signature)
+        val value = Gson().fromJson(verification, TumCabeVerification::class.java)
+        val uploadToken = DeviceUploadFcmToken(value, token, signature)
 
         TumCabeClient
                 .getInstance(context)
