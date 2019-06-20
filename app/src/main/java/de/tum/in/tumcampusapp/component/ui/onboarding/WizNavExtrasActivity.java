@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 
 import androidx.annotation.Nullable;
 
-import java.io.IOException;
 import java.util.List;
 
 import de.tum.in.tumcampusapp.R;
@@ -156,8 +155,7 @@ public class WizNavExtrasActivity extends ActivityForLoadingInBackground<Void, C
         editor.putBoolean(Const.BACKGROUND_MODE, true); // Enable by default
         editor.putBoolean(Const.BUG_REPORTS, bugReport.isChecked());
 
-        if (!member.getLrzId()
-                   .equals("")) {
+        if (!member.getLrzId().equals("")) {
             Utils.setSetting(this, Const.GROUP_CHAT_ENABLED, groupChatMode.isChecked());
             Utils.setSetting(this, Const.AUTO_JOIN_NEW_ROOMS, groupChatMode.isChecked());
             Utils.setSetting(this, Const.CHAT_MEMBER, member);

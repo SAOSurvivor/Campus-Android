@@ -1,6 +1,7 @@
 package de.tum.`in`.tumcampusapp.api.app.interceptors
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import de.tum.`in`.tumcampusapp.api.app.model.ObfuscatedIdsUpload
 import de.tum.`in`.tumcampusapp.api.app.model.TumCabeVerificationProvider
 import okhttp3.Headers
@@ -20,7 +21,8 @@ class TumCabeVerificationInterceptor @Inject constructor(
     private val verificationProvider: TumCabeVerificationProvider
 ) : Interceptor {
 
-    private val gson = Gson()
+    private val gson: Gson
+        get() = GsonBuilder().disableHtmlEscaping().create()
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
@@ -45,8 +47,15 @@ class TumCabeVerificationInterceptor @Inject constructor(
             return buildObfuscatedIdsUploadRequest(this)
         }
 
-        val verification = verificationProvider.create(body()) ?: throw TumCabeVerificationException()
-        val requestBody = RequestBody.create(JSON, gson.toJson(verification))
+        val body = body()?.stringOrEmpty()
+
+        val verification = verificationProvider.create(body) ?: throw TumCabeVerificationException()
+        val payload = gson.toJson(verification)
+
+        println("Payload: \n")
+        println(payload)
+
+        val requestBody = RequestBody.create(JSON, payload)
 
         return when (method()) {
             "POST" -> newBuilder().post(requestBody).build()
@@ -56,7 +65,7 @@ class TumCabeVerificationInterceptor @Inject constructor(
     }
 
     private fun buildObfuscatedIdsUploadRequest(request: Request): Request {
-        val body = request.body()?.string()
+        val body = request.body().stringOrEmpty()
         val idsUpload = gson.fromJson(body, ObfuscatedIdsUpload::class.java)
         idsUpload.verification = verificationProvider.create()
 
@@ -64,7 +73,11 @@ class TumCabeVerificationInterceptor @Inject constructor(
         return request.newBuilder().post(requestBody).build()
     }
 
-    private fun RequestBody.string(): String {
+    private fun RequestBody?.stringOrEmpty(): String {
+        if (this == null) {
+            return ""
+        }
+
         val buffer = Buffer()
         writeTo(buffer)
         return buffer.readUtf8()
