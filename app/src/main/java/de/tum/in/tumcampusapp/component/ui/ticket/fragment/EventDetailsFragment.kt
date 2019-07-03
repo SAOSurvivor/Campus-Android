@@ -17,7 +17,6 @@ import de.tum.`in`.tumcampusapp.R
 import de.tum.`in`.tumcampusapp.component.tumui.calendar.CreateEventActivity
 import de.tum.`in`.tumcampusapp.component.ui.ticket.EventHelper
 import de.tum.`in`.tumcampusapp.component.ui.ticket.activity.ShowTicketActivity
-import de.tum.`in`.tumcampusapp.component.ui.ticket.di.TicketsModule
 import de.tum.`in`.tumcampusapp.component.ui.ticket.model.Event
 import de.tum.`in`.tumcampusapp.component.ui.ticket.payload.TicketStatus
 import de.tum.`in`.tumcampusapp.di.ViewModelFactory
@@ -26,9 +25,20 @@ import de.tum.`in`.tumcampusapp.utils.Const
 import de.tum.`in`.tumcampusapp.utils.Const.KEY_EVENT_ID
 import de.tum.`in`.tumcampusapp.utils.DateTimeUtils
 import de.tum.`in`.tumcampusapp.utils.into
-import de.tum.`in`.tumcampusapp.utils.observe
-import kotlinx.android.synthetic.main.fragment_event_details.*
-import kotlinx.android.synthetic.main.fragment_event_details.view.*
+import de.tum.`in`.tumcampusapp.utils.observeNonNull
+import kotlinx.android.synthetic.main.fragment_event_details.dateContainer
+import kotlinx.android.synthetic.main.fragment_event_details.dateTextView
+import kotlinx.android.synthetic.main.fragment_event_details.descriptionTextView
+import kotlinx.android.synthetic.main.fragment_event_details.linkButton
+import kotlinx.android.synthetic.main.fragment_event_details.locationContainer
+import kotlinx.android.synthetic.main.fragment_event_details.locationTextView
+import kotlinx.android.synthetic.main.fragment_event_details.posterProgressBar
+import kotlinx.android.synthetic.main.fragment_event_details.posterView
+import kotlinx.android.synthetic.main.fragment_event_details.remainingTicketsContainer
+import kotlinx.android.synthetic.main.fragment_event_details.remainingTicketsTextView
+import kotlinx.android.synthetic.main.fragment_event_details.swipeRefreshLayout
+import kotlinx.android.synthetic.main.fragment_event_details.ticketButton
+import kotlinx.android.synthetic.main.fragment_event_details.view.swipeRefreshLayout
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -51,7 +61,7 @@ class EventDetailsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     @Inject
     lateinit var viewModelProviders: Provider<EventDetailsViewModel>
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.ticketsComponent()
                 .eventId(event.id)
@@ -76,7 +86,7 @@ class EventDetailsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         showEventDetails(event)
-        viewModel.aggregatedTicketStatus.observe(viewLifecycleOwner, this::showTicketCount)
+        viewModel.aggregatedTicketStatus.observeNonNull(viewLifecycleOwner, this::showTicketCount)
     }
 
     override fun onRefresh() {

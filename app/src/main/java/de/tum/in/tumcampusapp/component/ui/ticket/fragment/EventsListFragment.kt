@@ -44,7 +44,7 @@ class EventsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         ViewModelProviders.of(this, factory).get(EventsViewModel::class.java)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.eventsComponent()
                 .eventType(eventType)

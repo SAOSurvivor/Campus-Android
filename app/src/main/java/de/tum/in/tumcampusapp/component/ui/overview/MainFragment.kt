@@ -27,6 +27,7 @@ import de.tum.`in`.tumcampusapp.service.SilenceService
 import de.tum.`in`.tumcampusapp.utils.Const
 import de.tum.`in`.tumcampusapp.utils.NetUtils
 import de.tum.`in`.tumcampusapp.utils.Utils
+import de.tum.`in`.tumcampusapp.utils.observeNonNull
 import kotlinx.android.synthetic.main.fragment_main.cardsRecyclerView
 import org.jetbrains.anko.connectivityManager
 import org.jetbrains.anko.support.v4.runOnUiThread
@@ -60,7 +61,7 @@ class MainFragment : BaseFragment<Unit>(
         ViewModelProviders.of(this, factory).get(MainActivityViewModel::class.java)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.inject(this)
     }
@@ -91,9 +92,7 @@ class MainFragment : BaseFragment<Unit>(
         val service = Intent(requireContext(), SilenceService::class.java)
         requireContext().startService(service)
 
-        viewModel.cards.observe(viewLifecycleOwner) {
-            it?.let { onNewCardsAvailable(it) }
-        }
+        viewModel.cards.observeNonNull(viewLifecycleOwner, this::onNewCardsAvailable)
     }
 
     override fun onResume() {

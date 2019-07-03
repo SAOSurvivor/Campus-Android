@@ -22,7 +22,6 @@ import de.tum.`in`.tumcampusapp.component.ui.cafeteria.activity.CafeteriaNotific
 import de.tum.`in`.tumcampusapp.component.ui.cafeteria.controller.CafeteriaManager
 import de.tum.`in`.tumcampusapp.component.ui.cafeteria.details.CafeteriaDetailsSectionsPagerAdapter
 import de.tum.`in`.tumcampusapp.component.ui.cafeteria.details.CafeteriaViewModel
-import de.tum.`in`.tumcampusapp.component.ui.cafeteria.di.CafeteriaModule
 import de.tum.`in`.tumcampusapp.component.ui.cafeteria.model.Cafeteria
 import de.tum.`in`.tumcampusapp.di.ViewModelFactory
 import de.tum.`in`.tumcampusapp.di.injector
@@ -68,7 +67,7 @@ class CafeteriaFragment : FragmentForDownloadingExternal(
     override val method: DownloadWorker.Action?
         get() = cafeteriaDownloadAction
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         injector.cafeteriaComponent().inject(this)
     }
@@ -191,8 +190,8 @@ class CafeteriaFragment : FragmentForDownloadingExternal(
 
     override fun onNothingSelected(adapterView: AdapterView<*>?) = Unit
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.menu_section_fragment_cafeteria_details, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_section_fragment_cafeteria_details, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
