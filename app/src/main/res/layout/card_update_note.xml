@@ -15,7 +15,7 @@
             android:id="@+id/update_note_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="@dimen/tiny_space"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@id/update_note_title"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="@dimen/default_space"
-            style="@style/CardSource"/>
+            style="@style/Text.Source"/>
         <TextView
             android:id="@+id/update_note_message"
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toBottomOf="@id/update_note_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="@dimen/default_space"
-            style="@style/CardBody"/>
+            style="@style/Text.Body"/>
         <ImageView
             android:id="@+id/cardMoreIcon"
             style="@style/CardMoreIcon"

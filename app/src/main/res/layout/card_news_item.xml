@@ -19,6 +19,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:background="@android:color/darker_gray" />
 
         <!-- The background of the more icon, separate to allow for padding around the background -->
@@ -47,7 +48,7 @@
 
         <TextView
             android:id="@+id/news_title"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -62,7 +63,7 @@
 
         <TextView
             android:id="@+id/news_src_date"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -75,7 +76,7 @@
 
         <TextView
             android:id="@+id/news_src_title"
-            style="@style/CardSource"
+            style="@style/Text.Source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

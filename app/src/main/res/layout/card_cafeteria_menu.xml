@@ -9,7 +9,7 @@
 
         <TextView
             android:id="@+id/cafeteriaNameTextView"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/menuDateTextView"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/openingHoursTextView"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="0dp"
             app:layout_constraintEnd_toStartOf="@id/cardMoreIcon"
             app:layout_constraintStart_toStartOf="parent"

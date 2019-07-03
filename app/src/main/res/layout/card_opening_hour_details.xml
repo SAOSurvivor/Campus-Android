@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/headerTextView"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/opening_hours_hours"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -39,7 +39,7 @@
 
         <TextView
             android:id="@+id/opening_hours_location"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/tiny_space"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/opening_hours_room"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/tiny_space"
@@ -64,7 +64,7 @@
 
         <TextView
             android:id="@+id/opening_hours_transport"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/tiny_space"
@@ -76,7 +76,7 @@
 
         <TextView
             android:id="@+id/opening_hours_info"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/small_space"

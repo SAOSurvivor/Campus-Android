@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/headerTextView"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/detailsTextView"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"

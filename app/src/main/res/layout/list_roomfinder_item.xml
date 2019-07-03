@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/startup_actionbar_title"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/building"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@android:string/untitled" />

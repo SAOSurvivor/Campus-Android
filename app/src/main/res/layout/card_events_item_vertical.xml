@@ -61,7 +61,7 @@
 
         <TextView
             android:id="@+id/events_title"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -77,7 +77,7 @@
 
         <TextView
             android:id="@+id/events_src_date"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/default_space"

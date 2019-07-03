@@ -30,7 +30,7 @@ class ChatMessagesCardViewHolder(
                             context.getString(R.string.card_message_line, memberName, message.text)
                         }
                         .map { messageText ->
-                            TextView(context, null, R.style.CardBody).apply {
+                            TextView(context, null, R.style.Text_Body).apply {
                                 text = messageText
                             }
                         }

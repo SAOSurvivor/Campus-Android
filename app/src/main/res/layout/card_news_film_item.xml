@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/news_title"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -45,11 +45,11 @@
             android:id="@+id/cardMoreIconGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="cardMoreIconBackground,cardMoreIcon" />
+            app:constraint_referenced_ids="cardMoreIcon" />
 
         <TextView
             android:id="@+id/news_src_date"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -62,7 +62,7 @@
 
         <TextView
             android:id="@+id/news_src_title"
-            style="@style/CardSource"
+            style="@style/Text.Source"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

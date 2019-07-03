@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text" />
+
+    <style name="Text.Title">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:layout_marginBottom">@dimen/small_space</item>
+        <item name="android:textColor">@color/black_alpha_87</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Body">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/black_alpha_54</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Details">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textColor">@color/black_alpha_54</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Text.Source">
+        <item name="android:textColor">@color/black_alpha_54</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

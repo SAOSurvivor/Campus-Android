@@ -15,14 +15,14 @@
 
         <TextView
             android:id="@+id/menuDateTextView"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Monday, August 20, 2018" />
 
         <TextView
             android:id="@+id/menuOpeningHours"
-            style="@style/CardDetails"
+            style="@style/Text.Details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/light_green_600"

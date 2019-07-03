@@ -8,7 +8,7 @@
 
         <TextView
             android:id="@+id/cardTitle"
-            style="@style/CardTitle"
+            style="@style/Text.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/cardBody"
-            style="@style/CardBody"
+            style="@style/Text.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_space"
