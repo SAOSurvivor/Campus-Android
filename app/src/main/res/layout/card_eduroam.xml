@@ -53,7 +53,7 @@
             android:layout_marginBottom="@dimen/material_small_padding"
             android:text="@string/eduroam_setup"
             android:textAllCaps="false"
-            android:textColor="@color/color_primary"
+            android:textColor="@color/tum_500"
             app:cornerRadius="@dimen/material_corner_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

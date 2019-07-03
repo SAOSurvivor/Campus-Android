@@ -6,7 +6,7 @@
         android:id="@+id/action_transport_usage"
         android:icon="@drawable/ic_action_info_black"
         android:title="@string/transport_action_usage"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="always" />
 
 </menu>

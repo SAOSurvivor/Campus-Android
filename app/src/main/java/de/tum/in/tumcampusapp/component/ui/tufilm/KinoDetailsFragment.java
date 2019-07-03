@@ -178,7 +178,7 @@ public class KinoDetailsFragment extends Fragment {
         TextView ratingTextView = rootView.findViewById(R.id.ratingTextView);
         ratingTextView.setText(kino.getFormattedRating());
 
-        int colorPrimary = ContextCompat.getColor(requireContext(), R.color.color_primary);
+        int colorPrimary = ContextCompat.getColor(requireContext(), R.color.tum_500);
         setCompoundDrawablesTint(dateTextView, colorPrimary);
         setCompoundDrawablesTint(runtimeTextView, colorPrimary);
         setCompoundDrawablesTint(ratingTextView, colorPrimary);

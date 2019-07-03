@@ -67,7 +67,7 @@ public class CreateEventActivity extends ActivityForAccessingTumOnline<CreateEve
 
         if (getSupportActionBar() != null) {
             Drawable closeIcon = ContextCompat.getDrawable(this, R.drawable.ic_clear);
-            int color = ContextCompat.getColor(this, R.color.color_primary);
+            int color = ContextCompat.getColor(this, R.color.tum_500);
             if (closeIcon != null) {
                 closeIcon.setTint(color);
                 getSupportActionBar().setHomeAsUpIndicator(closeIcon);

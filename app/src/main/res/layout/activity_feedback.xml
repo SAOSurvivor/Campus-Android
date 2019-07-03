@@ -53,7 +53,7 @@
                 android:layout_marginTop="@dimen/material_large_padding"
                 android:layout_marginBottom="@dimen/material_default_padding"
                 android:hint="@string/feedback_hint"
-                app:boxStrokeColor="@color/input_layout_border"
+                app:boxStrokeColor="@color/tum_500"
                 app:boxStrokeWidth="@dimen/input_layout_border">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +84,7 @@
                     android:padding="@dimen/material_default_padding"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_outline_add_photo_alternate_24px"
-                    android:tint="@color/color_primary"
+                    android:tint="@color/tum_500"
                     app:cornerRadius="@dimen/material_corner_radius" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -101,7 +101,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/material_default_padding"
                 android:layout_marginBottom="@dimen/material_default_padding"
-                android:background="@color/text_light_gray" />
+                android:background="@color/grey_400" />
 
             <CheckBox
                 android:id="@+id/includeEmailCheckbox"
@@ -120,7 +120,7 @@
                 android:layout_marginTop="@dimen/material_small_padding"
                 android:hint="@string/feedback_email_hint"
                 android:visibility="gone"
-                app:boxStrokeColor="@color/input_layout_border"
+                app:boxStrokeColor="@color/tum_500"
                 app:boxStrokeWidth="@dimen/input_layout_border"
                 tools:visibility="visible">
 
@@ -153,7 +153,7 @@
                 android:text="@string/feedback_send_button"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                app:backgroundTint="@color/color_primary"
+                app:backgroundTint="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius" />
 
         </LinearLayout>

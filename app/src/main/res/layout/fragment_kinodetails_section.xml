@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_window_background">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                     android:id="@+id/kino_cover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/spinner_background"
+                    android:background="@color/white"
                     android:contentDescription="@string/kino_cover_description"
                     android:scaleType="centerCrop"
                     android:visibility="visible" />
@@ -78,7 +78,7 @@
                 android:layout_margin="@dimen/material_small_padding"
                 android:text="@string/watch_trailer"
                 android:textAllCaps="false"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -90,9 +90,10 @@
                 android:layout_margin="@dimen/material_small_padding"
                 android:text="@string/buy_ticket"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:visibility="gone"
-                app:cornerRadius="@dimen/material_corner_radius" />
+                app:cornerRadius="@dimen/material_corner_radius"
+                tools:visibility="visible" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -151,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/material_default_padding"
-                android:background="@color/list_divider" />
+                android:background="@color/grey_200" />
 
             <TextView
                 android:id="@+id/remainingTicketsHeaderTextView"
@@ -162,7 +163,7 @@
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/remaining_tickets"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/remainingTicketsTextView"
@@ -184,7 +185,7 @@
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/location"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/locationTextView"
@@ -204,7 +205,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/material_default_padding"
             android:layout_marginBottom="@dimen/material_default_padding"
-            android:background="@color/list_divider" />
+            android:background="@color/grey_200" />
 
         <TextView
             android:id="@+id/descriptionTextView"
@@ -221,7 +222,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/material_default_padding"
-            android:background="@color/list_divider" />
+            android:background="@color/grey_200" />
 
         <TextView
             android:id="@+id/genresHeaderTextView"
@@ -232,7 +233,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:fontFamily="sans-serif-medium"
             android:text="@string/genres"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/tum_500" />
 
         <TextView
             android:id="@+id/genresTextView"
@@ -254,7 +255,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:fontFamily="sans-serif-medium"
             android:text="@string/released"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/tum_500" />
 
         <TextView
             android:id="@+id/releaseYearTextView"
@@ -275,7 +276,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:fontFamily="sans-serif-medium"
             android:text="@string/actors"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/tum_500" />
 
         <TextView
             android:id="@+id/actorsTextView"
@@ -297,7 +298,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:fontFamily="sans-serif-medium"
             android:text="@string/director"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/tum_500" />
 
         <TextView
             android:id="@+id/directorTextView"
@@ -319,7 +320,7 @@
             android:layout_marginBottom="@dimen/material_default_padding"
             android:text="@string/more_info"
             android:textAllCaps="false"
-            android:textColor="@color/color_primary"
+            android:textColor="@color/tum_500"
             app:cornerRadius="@dimen/material_corner_radius" />
 
     </LinearLayout>

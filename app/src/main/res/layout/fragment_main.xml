@@ -16,7 +16,7 @@
             android:id="@+id/cardsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/default_window_background"
+            android:background="@color/white"
             android:scrollbars="none" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

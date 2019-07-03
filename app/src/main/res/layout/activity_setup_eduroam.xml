@@ -28,7 +28,7 @@
                     android:layout_marginBottom="@dimen/material_small_padding"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/lrz_id"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/tum_500" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -90,7 +90,7 @@
                     android:layout_marginBottom="@dimen/material_small_padding"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/data_backup"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/tum_500" />
 
                 <TextView
                     android:id="@+id/text_with_link_2"
@@ -118,14 +118,14 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@+id/buttonBar"
-            android:background="@color/list_divider" />
+            android:background="@color/grey_200" />
 
         <LinearLayout
             android:id="@+id/buttonBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/default_window_background"
+            android:background="@color/white"
             android:gravity="end"
             android:orientation="horizontal"
             android:paddingStart="@dimen/material_default_padding"

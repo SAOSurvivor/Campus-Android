@@ -6,13 +6,13 @@
         android:id="@+id/action_edit"
         android:icon="@drawable/ic_outline_edit_24px"
         android:title="@string/edit"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_info"
         android:icon="@drawable/ic_action_info_black"
         android:title="@string/information"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="ifRoom" />
 </menu>

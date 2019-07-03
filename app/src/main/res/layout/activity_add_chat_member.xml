@@ -14,7 +14,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin">
+        android:layout_margin="@dimen/material_default_padding">
 
         <AutoCompleteTextView
             android:id="@+id/chat_user_search"
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/or"
-        android:layout_margin="@dimen/padding_default"/>
+        android:layout_margin="@dimen/material_default_padding"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,6 +43,6 @@
         android:layout_height="0px"
         android:layout_weight="1"
         android:scaleType="fitCenter"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
+        android:layout_margin="@dimen/material_default_padding"/>
 
 </LinearLayout>

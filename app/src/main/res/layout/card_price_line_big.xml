@@ -28,7 +28,7 @@
         android:layout_marginStart="@dimen/material_small_padding"
         android:gravity="end"
         android:minWidth="50dp"
-        android:textColor="@color/sections_green"
+        android:textColor="@color/light_green_500"
         tools:text="Price" />
 
     <ImageView

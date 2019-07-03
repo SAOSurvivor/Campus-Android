@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.AppTheme.V21" parent="Theme.MaterialComponents.Light.NoActionBar"/>
+    <style name="Base.AppTheme" parent="Base.AppTheme.V21"/>
+
+    <!-- Common attributes -->
+    <style name="AppTheme" parent="Base.AppTheme">
+        <item name="colorPrimary">@color/tum_light_gray</item>
+        <item name="colorPrimaryDark">@color/tum_light_gray</item>
+        <item name="colorAccent">@color/tum_blue</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="colorError">@color/red_500</item>
+        <!--<item name="android:textCursorDrawable">@drawable/cursor_text_field_colorful</item>-->
+
+        <!-- Text style -->
+        <item name="android:textColorPrimary">@color/black_alpha_87</item>
+        <item name="android:textColorSecondary">@color/black_alpha_54</item>
+
+        <!-- System UI -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/primary_text_dark</item>
+    </style>
+
+    <!-- TODO -->
+    <style name="AppTheme.NoDrawerLayout" parent="AppTheme">
+        <item name="android:statusBarColor">@color/tum_light_gray</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:textColorPrimary">@color/tum_500</item>
+        <item name="android:textColorSecondary">@color/tum_500</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_text_field_colorful</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="actionMenuTextColor">@android:color/primary_text_light</item>
+    </style>
+
+    <style name="AppTheme.Startup">
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!-- Light system UI -->
+        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
+
+        <!-- Light navigation bar -->
+        <!--<item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>-->
+        <item name="android:navigationBarColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen">
+        <item name="colorPrimary">@color/tum_500</item>
+        <item name="colorPrimaryDark">@color/tum_500</item>
+        <item name="colorAccent">@color/tum_500</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Style for Stripe's payment method activity -->
+    <style name="StripeDefaultTheme" parent="AppTheme" />
+
+</resources>

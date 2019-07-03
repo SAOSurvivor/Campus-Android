@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Attributes specific to API 27 -->
+    <style name="Base.AppTheme.V27" parent="Base.AppTheme.V21">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:navigationBarDividerColor">@color/grey_300</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.AppTheme.V27"/>
+
+</resources>

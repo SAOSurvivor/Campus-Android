@@ -1,6 +1,7 @@
 package de.tum.`in`.tumcampusapp.component.tumui.tutionfees
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -58,14 +59,14 @@ class TuitionFeesFragment : FragmentForAccessingTumOnline<TuitionList>(
 
         if (tuition.isPaid) {
             amountTextView.setTextColor(
-                    ContextCompat.getColor(requireContext(), R.color.sections_green))
+                    ContextCompat.getColor(requireContext(), R.color.light_green_500))
         } else {
             // check if the deadline is less than a week from now
             val nextWeek = DateTime().plusWeeks(1)
             if (nextWeek.isAfter(deadline)) {
-                amountTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.error))
+                amountTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_500))
             } else {
-                amountTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                amountTextView.setTextColor(Color.BLACK)
             }
         }
     }

@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:dividerHeight="1dp"
-            android:divider="@color/list_divider"
+            android:divider="@color/grey_200"
             android:listSelector="@android:color/transparent" />
 
         <TextView
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/text_dark_gray"
+            android:textColor="@color/grey_500"
             android:textSize="20sp"
             tools:text="Empty view"
             tools:visibility="visible" />

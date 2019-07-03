@@ -35,7 +35,7 @@
             tools:text="Opening Hours"
             android:drawableStart="@drawable/ic_outline_access_time_24px"
             android:drawablePadding="@dimen/material_small_padding"
-            android:drawableTint="@color/text_dark_gray"/>
+            android:drawableTint="@color/grey_500"/>
 
         <TextView
             android:id="@+id/opening_hours_location"
@@ -47,7 +47,7 @@
             tools:text="Location"
             android:drawableStart="@drawable/ic_outline_location_on_24px"
             android:drawablePadding="@dimen/material_small_padding"
-            android:drawableTint="@color/text_dark_gray"
+            android:drawableTint="@color/grey_500"
             android:textIsSelectable="true"/>
 
         <TextView
@@ -60,7 +60,7 @@
             tools:text="Room"
             android:drawableStart="@drawable/ic_room_icon"
             android:drawablePadding="@dimen/material_small_padding"
-            android:drawableTint="@color/text_dark_gray"/>
+            android:drawableTint="@color/grey_500"/>
 
         <TextView
             android:id="@+id/opening_hours_transport"
@@ -72,7 +72,7 @@
             tools:text="Transport"
             android:drawableStart="@drawable/ic_outline_train_24px"
             android:drawablePadding="@dimen/material_small_padding"
-            android:drawableTint="@color/text_dark_gray"/>
+            android:drawableTint="@color/grey_500"/>
 
         <TextView
             android:id="@+id/opening_hours_info"
@@ -84,7 +84,7 @@
             tools:text="Additional Information\nand more"
             android:drawableStart="@drawable/ic_action_info_black"
             android:drawablePadding="@dimen/material_small_padding"
-            android:drawableTint="@color/text_dark_gray"
+            android:drawableTint="@color/grey_500"
             android:layout_gravity="top"
             android:lineHeight="24dp"/>
 

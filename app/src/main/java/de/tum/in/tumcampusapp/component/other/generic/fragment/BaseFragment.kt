@@ -117,7 +117,7 @@ abstract class BaseFragment<T>(
         swipeRefreshLayout?.apply {
             setOnRefreshListener(this@BaseFragment)
             setColorSchemeResources(
-                    R.color.color_primary,
+                    R.color.tum_500,
                     R.color.tum_A100,
                     R.color.tum_A200
             )

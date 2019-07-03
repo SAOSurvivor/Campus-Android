@@ -109,7 +109,7 @@
             android:name=".component.ui.onboarding.StartupActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppThemeStartup">
+            android:theme="@style/AppTheme.Startup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -426,7 +426,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:parentActivityName=".component.ui.chat.activity.ChatRoomsActivity"
-            android:theme="@style/AppThemeFullscreen">
+            android:theme="@style/AppTheme.Fullscreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.tum.in.tumcampusapp.component.ui.chat.activity.ChatRoomsActivity" />
@@ -437,7 +437,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:parentActivityName=".component.ui.overview.MainActivity"
-            android:theme="@style/AppThemeFullscreen">
+            android:theme="@style/AppTheme.Fullscreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".component.ui.overview.MainActivity" />

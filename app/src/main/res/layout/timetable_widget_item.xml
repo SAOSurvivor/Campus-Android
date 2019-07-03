@@ -52,7 +52,7 @@
         android:layout_marginStart="30dp"
         android:orientation="vertical"
         android:padding="@dimen/material_small_padding"
-        tools:background="@color/text_dark_gray">
+        tools:background="@color/grey_500">
 
         <TextView
             android:id="@+id/timetable_widget_event_title"

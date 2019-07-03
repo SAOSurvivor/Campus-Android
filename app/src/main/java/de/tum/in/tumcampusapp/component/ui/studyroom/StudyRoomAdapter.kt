@@ -39,7 +39,7 @@ class StudyRoomAdapter(private val fragment: Fragment, private val studyRooms: L
 
             detailsTextView.text = Utils.fromHtml(detailsText.toString())
 
-            val colorResId = if (isOccupied) R.color.study_room_occupied else R.color.study_room_free
+            val colorResId = if (isOccupied) R.color.red_100 else R.color.green_100
             val color = ContextCompat.getColor(holder.itemView.context, colorResId)
             cardView.setCardBackgroundColor(color)
         }

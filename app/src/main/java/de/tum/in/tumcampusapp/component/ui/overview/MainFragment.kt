@@ -72,7 +72,7 @@ class MainFragment : BaseFragment<Unit>(
         swipeRefreshLayout?.setOnRefreshListener(this)
         swipeRefreshLayout?.isRefreshing = true
         swipeRefreshLayout?.setColorSchemeResources(
-                R.color.color_primary,
+                R.color.tum_500,
                 R.color.tum_A100,
                 R.color.tum_A200)
 

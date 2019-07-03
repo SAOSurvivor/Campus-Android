@@ -6,7 +6,7 @@
         android:id="@+id/action_disable_sources"
         android:icon="@drawable/ic_filter_list"
         android:title="@string/settings"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="ifRoom" />
 
 </menu>

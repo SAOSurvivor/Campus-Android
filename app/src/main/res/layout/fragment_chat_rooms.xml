@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
-            android:theme="@style/TumToolbar"
-            app:popupTheme="@style/TumToolbarPopUp" />
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/chatRoomTabs"
@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            app:tabIndicatorColor="@color/color_primary"
+            app:tabIndicatorColor="@color/tum_500"
             app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/color_primary"
+            app:tabSelectedTextColor="@color/tum_500"
             app:tabTextColor="@color/text_dark_secondary" />
 
     </com.google.android.material.appbar.AppBarLayout>

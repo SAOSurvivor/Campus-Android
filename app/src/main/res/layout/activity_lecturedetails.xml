@@ -44,7 +44,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lec_details"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/semesterTextView"
@@ -74,7 +74,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lecture_begin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/dateTextView"
@@ -95,7 +95,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lec_contributors"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/professorTextView"
@@ -125,7 +125,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lec_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/contentTextView"
@@ -146,7 +146,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lec_method"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/methodTextView"
@@ -167,7 +167,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/lec_target"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/targetsTextView"
@@ -188,7 +188,7 @@
                 android:scrollHorizontally="false"
                 android:text="@string/examination_aids"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/tum_500" />
 
             <TextView
                 android:id="@+id/examinationAidsTextView"
@@ -206,7 +206,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/list_divider" />
+        android:background="@color/grey_200" />
 
     <FrameLayout
         android:id="@+id/buttonBar"

@@ -39,7 +39,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/step_2"
                         android:textAllCaps="false"
-                        android:textColor="@color/color_primary"
+                        android:textColor="@color/tum_500"
                         android:textSize="15sp" />
 
                     <TextView
@@ -101,7 +101,7 @@
                 android:onClick="onClickTUMOnline"
                 android:text="@string/open_tum_online"
                 android:textAllCaps="false"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -116,7 +116,7 @@
                 android:text="@string/button_next"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                app:backgroundTint="@color/color_primary"
+                app:backgroundTint="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius" />
 
         </LinearLayout>

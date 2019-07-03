@@ -20,7 +20,7 @@
             android:id="@+id/courseNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/text_light_blue"
+            android:textColor="@color/tum_500"
             android:textSize="@dimen/large_text_size"
             android:textStyle="bold"
             tools:text="Course name" />

@@ -68,7 +68,7 @@ class EventsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         eventsRefreshLayout.setOnRefreshListener(this@EventsListFragment)
         eventsRefreshLayout.setColorSchemeResources(
-                R.color.color_primary,
+                R.color.tum_500,
                 R.color.tum_A100,
                 R.color.tum_A200
         )

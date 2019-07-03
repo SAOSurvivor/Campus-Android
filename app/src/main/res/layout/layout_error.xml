@@ -44,7 +44,7 @@
         android:layout_marginTop="@dimen/material_default_padding"
         android:text="@string/retry"
         android:textAllCaps="false"
-        android:textColor="@color/color_primary"
+        android:textColor="@color/tum_500"
         app:cornerRadius="@dimen/material_corner_radius" />
 
 </LinearLayout>

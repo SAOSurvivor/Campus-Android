@@ -3,7 +3,7 @@
     android:id="@+id/lecture_header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
+    android:background="@color/tum_500"
     android:paddingStart="@dimen/material_default_padding"
     android:paddingTop="@dimen/material_small_padding"
     android:paddingEnd="@dimen/material_default_padding"

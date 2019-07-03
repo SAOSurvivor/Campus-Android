@@ -31,7 +31,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:text="@string/ticket"
             android:textAllCaps="false"
-            android:textColor="@color/color_primary"
+            android:textColor="@color/tum_500"
             android:visibility="gone"
             app:cornerRadius="@dimen/material_corner_radius"
             app:layout_constraintBottom_toBottomOf="parent"

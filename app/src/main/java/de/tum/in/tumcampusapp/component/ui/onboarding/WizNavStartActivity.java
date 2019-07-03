@@ -61,7 +61,7 @@ public class WizNavStartActivity extends ProgressActivity<Void> implements TextW
         if (getSupportActionBar() != null) {
             Drawable closeIcon = ContextCompat.getDrawable(this, R.drawable.ic_clear);
             if (closeIcon != null) {
-                int color = ContextCompat.getColor(this, R.color.color_primary);
+                int color = ContextCompat.getColor(this, R.color.tum_500);
                 closeIcon.setTint(color);
             }
             getSupportActionBar().setHomeAsUpIndicator(closeIcon);

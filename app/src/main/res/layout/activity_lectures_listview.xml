@@ -99,9 +99,9 @@
             android:drawablePadding="3dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:paddingLeft="@dimen/padding_default"
+            android:paddingLeft="@dimen/material_default_padding"
             android:paddingTop="@dimen/padding_chat"
-            android:paddingRight="@dimen/padding_default"
+            android:paddingRight="@dimen/material_default_padding"
             android:paddingBottom="@dimen/padding_chat"
             android:textColor="@android:color/white"
             tools:text="Members" />

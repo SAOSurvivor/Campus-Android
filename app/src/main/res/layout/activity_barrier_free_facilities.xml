@@ -23,7 +23,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/white"
                 android:elevation="12dp"
-                android:theme="@style/TumToolbar">
+                android:theme="@style/AppTheme.AppBarOverlay">
 
                 <FrameLayout
                     android:layout_width="wrap_content"

@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@android:color/white"
         android:elevation="@dimen/material_default_elevation"
-        android:theme="@style/TumToolbar"
-        app:popupTheme="@style/TumToolbarPopUp"/>
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
 </com.google.android.material.appbar.AppBarLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Attributes specific to API 23 -->
+    <style name="Base.AppTheme.V23" parent="Base.AppTheme.V21">
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+    <style name="AppTheme" parent="Base.AppTheme.V23"/>
+
+</resources>

@@ -18,7 +18,7 @@ import de.tum.`in`.tumcampusapp.component.notifications.model.FutureNotification
  */
 abstract class NotificationProvider(protected val context: Context) {
 
-    protected val notificationColorAccent = ContextCompat.getColor(context, R.color.color_primary)
+    protected val notificationColorAccent = ContextCompat.getColor(context, R.color.tum_500)
 
     /**
      * Returns the [NotificationCompat.Builder] with attributes shared by all of the provider's

@@ -6,14 +6,14 @@
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_outline_notifications_24px"
         android:title="@string/action_ingredients"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_ingredients"
         android:icon="@drawable/ic_action_info_black"
         android:title="@string/action_ingredients"
-        app:iconTint="@color/color_primary"
+        app:iconTint="@color/tum_500"
         app:showAsAction="ifRoom" />
 
 </menu>

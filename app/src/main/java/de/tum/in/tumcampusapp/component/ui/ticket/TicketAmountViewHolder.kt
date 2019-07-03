@@ -58,7 +58,7 @@ class TicketAmountViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
             currentAmount.text = ticketAmount.toString()
             plusButton.isEnabled = false
             minusButton.isEnabled = false
-            ticketTypeName.textColor = R.color.text_light_gray
+            ticketTypeName.textColor = R.color.grey_400
         }
         updateButtonState()
     }

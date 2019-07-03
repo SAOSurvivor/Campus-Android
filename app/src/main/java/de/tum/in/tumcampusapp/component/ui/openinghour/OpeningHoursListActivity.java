@@ -20,7 +20,7 @@ import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
 public class OpeningHoursListActivity extends BaseActivity {
 
     public OpeningHoursListActivity() {
-        super(R.layout.activity_openinghourslist);
+        super(R.layout.activity_openinghours_twopane);
     }
 
     @Override

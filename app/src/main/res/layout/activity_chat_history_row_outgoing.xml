@@ -60,9 +60,9 @@
                 android:contentDescription="@string/status_sent"
                 android:padding="0dp"
                 android:src="@drawable/ic_error_outline"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/tum_500"
                 android:visibility="gone"
-                tools:tint="@color/error"
+                tools:tint="@color/red_500"
                 tools:visibility="visible" />
 
         </LinearLayout>

@@ -81,7 +81,7 @@ class AlarmPushNotification(
                     .setLights(-0xffff01, 500, 500)
                     .setSound(sound)
                     .setAutoCancel(true)
-                    .setColor(ContextCompat.getColor(appContext, R.color.color_primary))
+                    .setColor(ContextCompat.getColor(appContext, R.color.tum_500))
                     .build()
         }
 

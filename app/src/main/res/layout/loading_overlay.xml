@@ -3,7 +3,7 @@
     android:id="@+id/loading_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/semitransparent_dark_background">
+    android:background="@color/black_alpha_30">
 
     <ProgressBar
         android:layout_width="60dp"

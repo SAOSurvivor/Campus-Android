@@ -36,7 +36,7 @@
                     app:eventTextColor="@android:color/white"
                     app:eventTextSize="12dp"
                     app:headerRowBackgroundColor="@android:color/white"
-                    app:headerRowBottomLineColor="@color/navigation_bar_divider"
+                    app:headerRowBottomLineColor="@color/grey_300"
                     app:headerRowBottomLineWidth="1dp"
                     app:headerRowPadding="12dp"
                     app:headerRowTextColor="@color/text_dark_secondary"
@@ -50,12 +50,12 @@
                     app:showTimeColumnSeparator="true"
                     app:singleDayHorizontalMargin="2dp"
                     app:timeColumnPadding="8dp"
-                    app:timeColumnSeparatorColor="@color/navigation_bar_divider"
+                    app:timeColumnSeparatorColor="@color/grey_300"
                     app:timeColumnSeparatorStrokeWidth="1dp"
                     app:timeColumnTextColor="@color/text_dark_secondary"
                     app:timeColumnTextSize="12dp"
                     app:todayBackgroundColor="#1848adff"
-                    app:todayHeaderTextColor="@color/color_primary"
+                    app:todayHeaderTextColor="@color/tum_500"
                     app:xScrollingSpeed="1" />
 
                 <com.google.android.material.button.MaterialButton

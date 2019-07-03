@@ -20,7 +20,7 @@
                 android:id="@+id/posterView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/placeholder"
+                android:background="@color/grey_300"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/kino_cover_description"
                 android:scaleType="centerCrop"/>
@@ -43,8 +43,7 @@
                 android:layout_marginTop="@dimen/material_default_padding"
                 android:layout_marginBottom="@dimen/material_default_padding"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/color_primary"
+                app:backgroundTint="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius"
                 app:layout_constraintBottom_toTopOf="@id/dateContainer"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/date"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/tum_500" />
 
                 <TextView
                     android:id="@+id/dateTextView"
@@ -105,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/remaining_tickets"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/tum_500" />
 
                 <TextView
                     android:id="@+id/remainingTicketsTextView"
@@ -138,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/location"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/tum_500" />
 
                 <TextView
                     android:id="@+id/locationTextView"
@@ -158,7 +157,7 @@
                 android:layout_marginTop="@dimen/material_default_padding"
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:layout_marginBottom="@dimen/material_default_padding"
-                android:background="@color/list_divider"
+                android:background="@color/grey_200"
                 app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +187,7 @@
                 android:layout_marginBottom="@dimen/material_default_padding"
                 android:text="@string/visit_website"
                 android:textAllCaps="false"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/tum_500"
                 app:cornerRadius="@dimen/material_corner_radius"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

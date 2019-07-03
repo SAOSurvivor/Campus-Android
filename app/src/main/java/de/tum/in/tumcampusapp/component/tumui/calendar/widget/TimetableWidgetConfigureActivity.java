@@ -33,7 +33,7 @@ public class TimetableWidgetConfigureActivity extends AppCompatActivity {
 
             Drawable closeIcon = ContextCompat.getDrawable(this, R.drawable.ic_check);
             if (closeIcon != null) {
-                int color = ContextCompat.getColor(this, R.color.color_primary);
+                int color = ContextCompat.getColor(this, R.color.tum_500);
                 closeIcon.setTint(color);
             }
             getSupportActionBar().setHomeAsUpIndicator(closeIcon);

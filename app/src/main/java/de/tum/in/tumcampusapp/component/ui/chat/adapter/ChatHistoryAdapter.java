@@ -11,11 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatMember;
 import de.tum.in.tumcampusapp.component.ui.chat.model.ChatMessage;
@@ -173,7 +174,7 @@ public class ChatHistoryAdapter extends BaseAdapter {
             statusImageView.setVisibility(inProgress ? View.GONE : View.VISIBLE);
             sendingProgressBar.setVisibility(inProgress ? View.VISIBLE : View.GONE);
 
-            int darkTextColor = ContextCompat.getColor(context, R.color.text_dark_secondary);
+            int darkTextColor = ContextCompat.getColor(context, R.color.black_alpha_54);
 
             if (inProgress) {
                 timestampTextView.setTextColor(darkTextColor);
@@ -188,7 +189,7 @@ public class ChatHistoryAdapter extends BaseAdapter {
 
             if (isError) {
                 statusIcon = ContextCompat.getDrawable(context, R.drawable.ic_error_outline);
-                iconTint = ContextCompat.getColor(context, R.color.error);
+                iconTint = ContextCompat.getColor(context, R.color.red_500);
             } else {
                 statusIcon = ContextCompat.getDrawable(context, R.drawable.ic_check);
                 iconTint = ContextCompat.getColor(context, R.color.tum_blue);
@@ -198,7 +199,7 @@ public class ChatHistoryAdapter extends BaseAdapter {
                 timestampTextView.setText(R.string.chat_message_send_error);
                 timestampTextView.setTextColor(iconTint);
             } else {
-                int textColor = ContextCompat.getColor(context, R.color.text_dark_secondary);
+                int textColor = ContextCompat.getColor(context, R.color.black_alpha_54);
                 timestampTextView.setTextColor(textColor);
                 timestampTextView.setText(message.getFormattedTimestamp(context));
             }

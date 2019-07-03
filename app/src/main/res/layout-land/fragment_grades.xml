@@ -17,8 +17,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
             android:elevation="12dp"
-            android:theme="@style/TumToolbar"
-            app:popupTheme="@style/TumToolbarPopUp">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <Spinner
                 android:id="@+id/filterSpinner"
@@ -43,7 +43,7 @@
             android:id="@+id/chartsContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/padding_default">
+            android:layout_margin="@dimen/material_default_padding">
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChartView"
@@ -103,7 +103,7 @@
             android:gravity="center"
             android:text="@string/show_list"
             android:textColor="@android:color/white"
-            app:backgroundTint="@color/color_primary"
+            app:backgroundTint="@color/tum_500"
             app:cornerRadius="@dimen/material_corner_radius" />
 
         <com.google.android.material.button.MaterialButton
@@ -119,7 +119,7 @@
             android:text="@string/show_chart"
             android:textColor="@android:color/white"
             android:visibility="gone"
-            app:backgroundTint="@color/color_primary"
+            app:backgroundTint="@color/tum_500"
             app:cornerRadius="@dimen/material_corner_radius" />
 
     </LinearLayout>

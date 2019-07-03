@@ -36,7 +36,7 @@ public class KinoActivity extends ProgressActivity<Void> {
         super.onCreate(savedInstanceState);
         getInjector().kinoComponent().inject(this);
 
-        getWindow().setBackgroundDrawableResource(R.color.secondary_window_background);
+        getWindow().setBackgroundDrawableResource(R.color.grey_100);
 
         ViewModelFactory<KinoViewModel> factory = new ViewModelFactory<>(viewModelProvider);
         KinoViewModel kinoViewModel = ViewModelProviders.of(this, factory).get(KinoViewModel.class);
