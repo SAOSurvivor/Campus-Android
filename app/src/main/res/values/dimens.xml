@@ -16,9 +16,10 @@
 
     <!-- Icons -->
     <dimen name="icon_default">24dp</dimen>
-    <dimen name="icon_large">40dp</dimen>
-    <dimen name="icon_small">48dp</dimen>
-    <dimen name="card_options_icon">40dp</dimen>
+    <dimen name="icon_large">48dp</dimen>
+
+    <dimen name="card_options_icon_size">40dp</dimen>
+    <dimen name="user_profile_icon_size">40dp</dimen>
 
     <!-- Chat -->
     <dimen name="chat_member_bubble_vertical_space">2dp</dimen>

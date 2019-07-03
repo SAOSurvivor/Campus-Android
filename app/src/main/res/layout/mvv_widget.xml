@@ -29,8 +29,8 @@
 
         <ImageButton
             android:id="@+id/mvv_widget_reload_button"
-            android:layout_width="@dimen/icon_small"
-            android:layout_height="@dimen/icon_small"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
             android:layout_marginStart="@dimen/tiny_space"
             android:background="@android:color/transparent"
             android:padding="12dp"
@@ -38,8 +38,8 @@
 
         <ImageButton
             android:id="@+id/mvv_widget_setting_button"
-            android:layout_width="@dimen/icon_small"
-            android:layout_height="@dimen/icon_small"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
             android:layout_marginEnd="@dimen/tiny_space"
             android:background="@android:color/transparent"
             android:padding="12dp"
