@@ -112,7 +112,7 @@
                 android:drawablePadding="@dimen/material_tiny_padding"
                 android:gravity="center_horizontal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:text="10/11" />
 
             <TextView
@@ -124,7 +124,7 @@
                 android:drawablePadding="@dimen/material_tiny_padding"
                 android:gravity="center_horizontal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:text="135 min" />
 
             <TextView
@@ -136,7 +136,7 @@
                 android:drawablePadding="@dimen/material_tiny_padding"
                 android:gravity="center_horizontal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:text="7 / 10" />
 
         </LinearLayout>
@@ -173,7 +173,7 @@
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:lineSpacingMultiplier="1.1"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:text="Actors" />
 
             <TextView
@@ -195,7 +195,7 @@
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:lineSpacingMultiplier="1.1"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:text="Actors" />
 
         </LinearLayout>
@@ -215,7 +215,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:lineSpacingMultiplier="1.1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/text_dark_primary"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="Lorem ipsum dolor sit amet" />
 
         <View
@@ -243,7 +243,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:lineSpacingMultiplier="1.1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/text_dark_primary"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="Genres" />
 
         <TextView
@@ -264,7 +264,7 @@
             android:layout_marginStart="@dimen/material_default_padding"
             android:layout_marginEnd="@dimen/material_default_padding"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/text_dark_primary"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="2018" />
 
         <TextView
@@ -286,7 +286,7 @@
             android:layout_marginEnd="@dimen/material_default_padding"
             android:lineSpacingMultiplier="1.1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/text_dark_primary"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="Actors" />
 
         <TextView
@@ -307,7 +307,7 @@
             android:layout_marginStart="@dimen/material_default_padding"
             android:layout_marginEnd="@dimen/material_default_padding"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/text_dark_primary"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="Director" />
 
         <com.google.android.material.button.MaterialButton

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Main app colors -->
-    <color name="tum_blue">@color/tum_500</color>
-    <color name="tum_light_gray">#F4F4F4</color>
-    <color name="tum_dark_gray">#E6E6E6</color>
 
     <!-- Official icon background -->
     <color name="tum_blue_icon">#0064BB</color>
@@ -15,7 +11,6 @@
     <color name="tum_300">#5598D3</color>
     <color name="tum_400">#2A7FC8</color>
     <color name="tum_500">#0065BD</color>
-    <color name="tum_500_alpha_15">#260065BD</color>
     <color name="tum_600">#0058A5</color>
     <color name="tum_700">#004C8E</color>
     <color name="tum_800">#003F76</color>
@@ -24,6 +19,8 @@
     <color name="tum_A200">#80B2DE</color>
     <color name="tum_A400">#2A7FC8</color>
     <color name="tum_A700">#004C8E</color>
+
+    <color name="tum_500_alpha_15">#260065BD</color>
 
     <!-- Official TUM accent colors (style guide) -->
     <color name="tum_orange">#E37222</color>
@@ -59,15 +56,6 @@
     <color name="facebook">#3B5998</color>
     <color name="github">#24292E</color>
     <color name="email">#757575</color>
-
-    <!--
-    ************************************************************************************************
-    -->
-
-    <!-- Default colors -->
-    <!-- TODO: move to theme -->
-    <color name="text_dark_primary">#DE000000</color> <!--DE for 87% opacity-->
-    <color name="text_dark_secondary">#8A000000</color> <!--8A for 54% opacity-->
 
     <color name="black_alpha_87">#DE000000</color>
     <color name="black_alpha_54">#8A000000</color>

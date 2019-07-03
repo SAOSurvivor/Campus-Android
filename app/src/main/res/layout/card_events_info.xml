@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/StandardCard">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/ticket_beta"
-        style="@style/InfoBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autoLink="email"
+        android:background="@drawable/info_box_background"
+        android:drawableStart="@drawable/ic_action_info_black"
+        android:drawablePadding="@dimen/material_default_padding"
+        android:padding="@dimen/material_default_padding"
         android:text="@string/ticket_sale_beta"
-        android:textColorLink="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="16sp"
+        app:drawableTint="@android:color/white" />
 
 </com.google.android.material.card.MaterialCardView>

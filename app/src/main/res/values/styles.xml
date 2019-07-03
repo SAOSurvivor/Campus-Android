@@ -1,25 +1,6 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="SectionHeadline">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:autoLink">none</item>
-        <item name="android:gravity">center</item>
-        <item name="android:scrollHorizontally">false</item>
-        <item name="android:textColor">@color/tum_500</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:paddingTop">@dimen/material_tiny_padding</item>
-        <item name="android:paddingBottom">@dimen/material_tiny_padding</item>
-        <item name="android:textSize">@dimen/section_text_size</item>
-    </style>
-
-    <style name="CalendarDateTimeItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?android:listPreferredItemHeightSmall</item>
-        <item name="android:orientation">horizontal</item>
-    </style>
-
-    <style name="PreferenceThemeOverlay">
+    <!--<style name="PreferenceThemeOverlay">
         <item name="preferenceScreenStyle">@style/Preference.PreferenceScreen.Material</item>
         <item name="preferenceFragmentStyle">@style/PreferenceFragment.Material</item>
         <item name="preferenceCategoryStyle">@style/Preference.Category.Material</item>
@@ -33,7 +14,7 @@
             @style/Preference.DialogPreference.EditTextPreference.Material
         </item>
         <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList.Material</item>
-    </style>
+    </style>-->
 
     <style name="StandardCard" parent="CardView">
         <item name="android:layout_width">match_parent</item>
@@ -106,18 +87,6 @@
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/white</item>
-    </style>
-
-    <style name="InfoBox">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:drawableStart">@drawable/ic_action_info_black</item>
-        <item name="android:drawablePadding">@dimen/material_default_padding</item>
-        <item name="android:drawableTint">@android:color/white</item>
-        <item name="android:background">@drawable/info_box_background</item>
-        <item name="android:padding">@dimen/material_default_padding</item>
     </style>
 
 </resources>

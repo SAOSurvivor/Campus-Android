@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/text_dark_primary"
+                    android:textColor="?android:attr/textColorPrimary"
                     tools:text="Date" />
 
             </LinearLayout>
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/text_dark_primary"
+                    android:textColor="?android:attr/textColorPrimary"
                     tools:text="Remaining" />
 
             </LinearLayout>
@@ -144,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/text_dark_primary"
+                    android:textColor="?android:attr/textColorPrimary"
                     tools:text="Location" />
 
             </LinearLayout>
@@ -171,7 +171,7 @@
                 android:layout_marginEnd="@dimen/material_default_padding"
                 android:layout_marginBottom="@dimen/material_default_padding"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/text_dark_primary"
+                android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintBottom_toTopOf="@id/linkButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

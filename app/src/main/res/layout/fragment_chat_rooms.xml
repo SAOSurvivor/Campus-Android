@@ -28,7 +28,7 @@
             app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/tum_500"
-            app:tabTextColor="@color/text_dark_secondary" />
+            app:tabTextColor="?android:attr/textColorSecondary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

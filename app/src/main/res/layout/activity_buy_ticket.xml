@@ -33,13 +33,6 @@
                     android:layout_height="wrap_content"
                     android:clipChildren="false">
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline"
-                        android:layout_width="1dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.25" />
-
                     <TextView
                         android:id="@+id/ticket_type_spinner_container_header"
                         android:layout_width="0dp"
@@ -69,11 +62,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/material_default_padding"
                         android:layout_marginTop="@dimen/material_default_padding"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/total"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="?android:attr/textColorSecondary"
-                        app:layout_constraintEnd_toEndOf="@id/guideline"
+                        android:textColor="@color/tum_500"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/ticket_amounts" />
 
@@ -85,10 +77,10 @@
                         android:layout_marginEnd="@dimen/material_default_padding"
                         android:layout_marginBottom="@dimen/material_default_padding"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_primary"
-                        app:layout_constraintBaseline_toBaselineOf="@id/ticket_details_price_title"
+                        android:textColor="?android:attr/textColorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ticket_details_price_title"
                         tools:text="Price" />
 
                     <TextView
@@ -104,7 +96,7 @@
                         android:textColor="@color/tum_500"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ticket_details_price_title" />
+                        app:layout_constraintTop_toBottomOf="@id/ticket_total_price" />
 
                     <TextView
                         android:id="@+id/ticket_details_event_title"
@@ -112,11 +104,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/material_default_padding"
                         android:layout_marginTop="@dimen/material_default_padding"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/event"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_secondary"
-                        app:layout_constraintEnd_toEndOf="@id/guideline"
+                        android:textColor="@color/tum_500"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/details_header_text_view" />
 
@@ -128,10 +119,10 @@
                         android:layout_marginEnd="@dimen/material_default_padding"
                         android:layout_marginBottom="@dimen/material_default_padding"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_primary"
-                        app:layout_constraintBaseline_toBaselineOf="@id/ticket_details_event_title"
+                        android:textColor="?android:attr/textColorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ticket_details_event_title"
                         tools:text="Details" />
 
                     <TextView
@@ -140,11 +131,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/material_default_padding"
                         android:layout_marginTop="@dimen/material_default_padding"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/location"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_secondary"
-                        app:layout_constraintEnd_toEndOf="@id/guideline"
+                        android:textColor="@color/tum_500"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/ticket_details_event" />
 
@@ -156,10 +146,10 @@
                         android:layout_marginEnd="@dimen/material_default_padding"
                         android:layout_marginBottom="@dimen/material_default_padding"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_primary"
-                        app:layout_constraintBaseline_toBaselineOf="@id/ticket_details_location_title"
+                        android:textColor="?android:attr/textColorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ticket_details_location_title"
                         tools:text="Location" />
 
                     <TextView
@@ -168,11 +158,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/material_default_padding"
                         android:layout_marginTop="@dimen/material_default_padding"
-                        android:fontFamily="sans-serif-medium"
                         android:text="@string/date"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_secondary"
-                        app:layout_constraintEnd_toEndOf="@id/guideline"
+                        android:textColor="@color/tum_500"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/ticket_details_location" />
 
@@ -184,10 +173,10 @@
                         android:layout_marginEnd="@dimen/material_default_padding"
                         android:layout_marginBottom="@dimen/material_default_padding"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/text_dark_primary"
-                        app:layout_constraintBaseline_toBaselineOf="@id/ticket_details_date_title"
+                        android:textColor="?android:attr/textColorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ticket_details_date_title"
                         tools:text="Date" />
 
                     <com.google.android.material.button.MaterialButton

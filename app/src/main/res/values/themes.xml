@@ -6,9 +6,9 @@
 
     <!-- Common attributes -->
     <style name="AppTheme" parent="Base.AppTheme">
-        <item name="colorPrimary">@color/tum_light_gray</item>
-        <item name="colorPrimaryDark">@color/tum_light_gray</item>
-        <item name="colorAccent">@color/tum_blue</item>
+        <item name="colorPrimary">@color/grey_100</item>
+        <item name="colorPrimaryDark">@color/grey_100</item>
+        <item name="colorAccent">@color/tum_500</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="colorError">@color/red_500</item>
@@ -26,7 +26,7 @@
 
     <!-- TODO -->
     <style name="AppTheme.NoDrawerLayout" parent="AppTheme">
-        <item name="android:statusBarColor">@color/tum_light_gray</item>
+        <item name="android:statusBarColor">@color/grey_100</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark">

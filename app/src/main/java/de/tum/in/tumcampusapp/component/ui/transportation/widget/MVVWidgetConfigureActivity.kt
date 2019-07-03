@@ -46,7 +46,7 @@ class MVVWidgetConfigureActivity : ActivityForSearching<Unit>(
         supportActionBar?.let { actionBar ->
             actionBar.setDisplayHomeAsUpEnabled(true)
             val closeIcon = ContextCompat.getDrawable(this, R.drawable.ic_action_cancel)
-            val color = ContextCompat.getColor(this, R.color.tum_blue)
+            val color = ContextCompat.getColor(this, R.color.tum_500)
             closeIcon?.setTint(color)
             actionBar.setHomeAsUpIndicator(closeIcon)
         }
