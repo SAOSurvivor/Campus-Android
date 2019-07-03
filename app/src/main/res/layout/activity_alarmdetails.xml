@@ -15,7 +15,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/card_text_padding">
+            android:layout_margin="@dimen/default_space">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:id="@+id/alarm_date"
-                    android:layout_marginLeft="@dimen/card_text_padding"
+                    android:layout_marginStart="@dimen/default_space"
                     android:textStyle="italic"/>
             </LinearLayout>
 

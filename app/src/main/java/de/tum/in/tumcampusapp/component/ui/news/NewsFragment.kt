@@ -54,7 +54,7 @@ class NewsFragment : FragmentForDownloadingExternal(
     }
 
     private fun initRecyclerView() {
-        val spacing = round(resources.getDimension(R.dimen.material_card_view_padding))
+        val spacing = round(resources.getDimension(R.dimen.default_card_padding))
         newsRecyclerView.addItemDecoration(EqualSpacingItemDecoration(spacing))
     }
 

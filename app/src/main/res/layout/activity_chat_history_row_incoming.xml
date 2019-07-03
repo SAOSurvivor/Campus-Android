@@ -4,11 +4,11 @@
     android:id="@+id/chatMessageLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/material_small_padding"
-    android:layout_marginEnd="@dimen/material_small_padding"
+    android:layout_marginStart="@dimen/small_space"
+    android:layout_marginEnd="@dimen/small_space"
     android:background="@drawable/bg_message_incoming"
     android:orientation="vertical"
-    android:padding="@dimen/material_small_padding"
+    android:padding="@dimen/small_space"
     tools:backgroundTint="@color/tum_50">
 
     <!-- TODO: Set max width to 70 percent -->

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/material_default_padding"
-    android:paddingTop="@dimen/material_small_padding"
-    android:paddingEnd="@dimen/material_default_padding"
-    android:paddingBottom="@dimen/material_small_padding">
+    android:paddingStart="@dimen/default_space"
+    android:paddingTop="@dimen/small_space"
+    android:paddingEnd="@dimen/default_space"
+    android:paddingBottom="@dimen/small_space">
 
     <TextView
         android:id="@+id/line_symbol"
@@ -27,8 +27,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/material_default_padding"
-        android:layout_marginEnd="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/default_space"
+        android:layout_marginEnd="@dimen/small_space"
         android:layout_weight="1"
         android:textSize="16sp"
         tools:text="Line name" />

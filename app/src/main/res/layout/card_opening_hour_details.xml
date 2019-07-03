@@ -11,10 +11,10 @@
         android:orientation="vertical"
 
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:paddingStart="@dimen/material_default_padding"
-        android:paddingTop="@dimen/material_default_padding"
-        android:paddingEnd="@dimen/material_default_padding"
-        android:paddingBottom="@dimen/material_small_padding">
+        android:paddingStart="@dimen/default_space"
+        android:paddingTop="@dimen/default_space"
+        android:paddingEnd="@dimen/default_space"
+        android:paddingBottom="@dimen/small_space">
 
         <TextView
             android:id="@+id/headerTextView"
@@ -34,7 +34,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Opening Hours"
             android:drawableStart="@drawable/ic_outline_access_time_24px"
-            android:drawablePadding="@dimen/material_small_padding"
+            android:drawablePadding="@dimen/small_space"
             android:drawableTint="@color/grey_500"/>
 
         <TextView
@@ -42,11 +42,11 @@
             style="@style/CardBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/material_tiny_padding"
+            android:paddingTop="@dimen/tiny_space"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Location"
             android:drawableStart="@drawable/ic_outline_location_on_24px"
-            android:drawablePadding="@dimen/material_small_padding"
+            android:drawablePadding="@dimen/small_space"
             android:drawableTint="@color/grey_500"
             android:textIsSelectable="true"/>
 
@@ -55,11 +55,11 @@
             style="@style/CardBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/material_tiny_padding"
+            android:paddingTop="@dimen/tiny_space"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Room"
             android:drawableStart="@drawable/ic_room_icon"
-            android:drawablePadding="@dimen/material_small_padding"
+            android:drawablePadding="@dimen/small_space"
             android:drawableTint="@color/grey_500"/>
 
         <TextView
@@ -67,11 +67,11 @@
             style="@style/CardBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/material_tiny_padding"
+            android:paddingTop="@dimen/tiny_space"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Transport"
             android:drawableStart="@drawable/ic_outline_train_24px"
-            android:drawablePadding="@dimen/material_small_padding"
+            android:drawablePadding="@dimen/small_space"
             android:drawableTint="@color/grey_500"/>
 
         <TextView
@@ -79,11 +79,11 @@
             style="@style/CardBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/material_small_padding"
+            android:paddingTop="@dimen/small_space"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Additional Information\nand more"
             android:drawableStart="@drawable/ic_action_info_black"
-            android:drawablePadding="@dimen/material_small_padding"
+            android:drawablePadding="@dimen/small_space"
             android:drawableTint="@color/grey_500"
             android:layout_gravity="top"
             android:lineHeight="24dp"/>
@@ -93,12 +93,12 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/material_tiny_padding"
+            android:layout_marginTop="@dimen/tiny_space"
             android:onClick="openLink"
             android:textAllCaps="false"
             android:textColor="#006c90"
             android:layout_gravity="right"
-            app:cornerRadius="@dimen/material_corner_radius"
+            app:cornerRadius="@dimen/default_corner_radius"
             tools:text="@string/website" />
 
     </LinearLayout>

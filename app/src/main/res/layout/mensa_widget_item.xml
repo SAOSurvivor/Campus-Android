@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="@dimen/material_small_padding">
+    android:padding="@dimen/small_space">
 
     <TextView
         android:id="@+id/menu_content"
@@ -20,7 +20,7 @@
         android:id="@+id/menu_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:textColor="@color/light_green_500"
         android:textSize="16sp"
         tools:text="1,00 €" />

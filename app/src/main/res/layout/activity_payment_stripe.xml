@@ -28,9 +28,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_default_padding"
-                    android:layout_marginTop="@dimen/material_default_padding"
-                    android:layout_marginEnd="@dimen/material_default_padding"
+                    android:layout_marginStart="@dimen/default_space"
+                    android:layout_marginTop="@dimen/default_space"
+                    android:layout_marginEnd="@dimen/default_space"
                     android:text="@string/enter_card_info_description"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorSecondary" />
@@ -39,9 +39,9 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_default_padding"
-                    android:layout_marginTop="@dimen/material_default_padding"
-                    android:layout_marginEnd="@dimen/material_default_padding"
+                    android:layout_marginStart="@dimen/default_space"
+                    android:layout_marginTop="@dimen/default_space"
+                    android:layout_marginEnd="@dimen/default_space"
                     android:hint="@string/cardholder">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -57,8 +57,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/divider_height"
-                    android:layout_marginTop="@dimen/material_default_padding"
+                    android:layout_height="@dimen/default_divider_height"
+                    android:layout_marginTop="@dimen/default_space"
                     android:background="@color/grey_300" />
 
                 <ViewSwitcher
@@ -72,8 +72,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginEnd="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginEnd="@dimen/default_space"
                         android:gravity="start"
                         android:text="@string/select_payment_method"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -89,10 +89,10 @@
                             android:layout_width="@dimen/icon_default"
                             android:layout_height="@dimen/icon_default"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/material_default_padding"
-                            android:layout_marginTop="@dimen/material_default_padding"
-                            android:layout_marginEnd="@dimen/material_default_padding"
-                            android:layout_marginBottom="@dimen/material_default_padding"
+                            android:layout_marginStart="@dimen/default_space"
+                            android:layout_marginTop="@dimen/default_space"
+                            android:layout_marginEnd="@dimen/default_space"
+                            android:layout_marginBottom="@dimen/default_space"
                             android:alpha="0.54"
                             android:src="@drawable/ic_credit_card_black_24dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -104,8 +104,8 @@
                             android:id="@+id/selected_payment_method_text_view"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/material_default_padding"
-                            android:layout_marginEnd="@dimen/material_default_padding"
+                            android:layout_marginTop="@dimen/default_space"
+                            android:layout_marginEnd="@dimen/default_space"
                             android:fontFamily="sans-serif-medium"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="?android:attr/textColorSecondary"
@@ -119,8 +119,8 @@
                             android:id="@+id/selected_payment_method_brand_text_view"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/material_default_padding"
-                            android:layout_marginBottom="@dimen/material_default_padding"
+                            android:layout_marginEnd="@dimen/default_space"
+                            android:layout_marginBottom="@dimen/default_space"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textColor="?android:attr/textColorSecondary"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -134,7 +134,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginEnd="@dimen/material_default_padding"
+                            android:layout_marginEnd="@dimen/default_space"
                             android:scaleType="centerInside"
                             android:src="@drawable/ic_outline_edit_24px"
                             android:tint="@color/grey_500"
@@ -148,7 +148,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/divider_height"
+                    android:layout_height="@dimen/default_divider_height"
                     android:background="@color/grey_300" />
 
                 <View
@@ -159,8 +159,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_small_padding"
-                    android:layout_marginEnd="@dimen/material_default_padding"
+                    android:layout_marginStart="@dimen/small_space"
+                    android:layout_marginEnd="@dimen/default_space"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -176,10 +176,10 @@
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_small_padding"
+                        android:layout_marginStart="@dimen/small_space"
                         android:text="@string/stripe_terms_of_service_button"
                         android:textAllCaps="false"
-                        app:cornerRadius="@dimen/material_corner_radius"
+                        app:cornerRadius="@dimen/default_corner_radius"
                         app:icon="@drawable/ic_external_link" />
                 </LinearLayout>
 
@@ -188,15 +188,15 @@
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/material_default_padding"
+                    android:layout_margin="@dimen/default_space"
                     android:alpha="0.5"
                     android:enabled="false"
-                    android:padding="@dimen/material_small_padding"
+                    android:padding="@dimen/small_space"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     app:backgroundTint="@color/tum_500"
-                    app:cornerRadius="@dimen/material_corner_radius"
+                    app:cornerRadius="@dimen/default_corner_radius"
                     tools:text="@string/buy_ticket" />
 
             </LinearLayout>

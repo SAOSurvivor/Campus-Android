@@ -9,7 +9,7 @@
     android:ellipsize="end"
     android:gravity="center_vertical"
     android:maxLines="1"
-    android:paddingStart="@dimen/material_default_padding"
-    android:paddingEnd="@dimen/material_default_padding"
+    android:paddingStart="@dimen/default_space"
+    android:paddingEnd="@dimen/default_space"
     android:textColor="@color/tum_500"
     tools:text="Text" />

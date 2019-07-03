@@ -23,7 +23,6 @@ import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
 import de.tum.in.tumcampusapp.component.other.generic.adapter.EqualSpacingItemDecoration;
 import de.tum.in.tumcampusapp.component.ui.ticket.TicketAmountViewHolder;
 import de.tum.in.tumcampusapp.component.ui.ticket.adapter.TicketAmountAdapter;
-import de.tum.in.tumcampusapp.component.ui.ticket.di.TicketsModule;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.Event;
 import de.tum.in.tumcampusapp.component.ui.ticket.model.TicketType;
 import de.tum.in.tumcampusapp.component.ui.ticket.payload.TicketReservation;
@@ -118,7 +117,7 @@ public class BuyTicketActivity extends BaseActivity implements TicketAmountViewH
         ticketAmounts.setHasFixedSize(true);
         ticketAmounts.setAdapter(new TicketAmountAdapter(ticketTypes));
         ticketAmounts.setNestedScrollingEnabled(false);
-        int spacing = Math.round(getResources().getDimension(R.dimen.material_small_padding));
+        int spacing = Math.round(getResources().getDimension(R.dimen.small_space));
         ticketAmounts.addItemDecoration(new EqualSpacingItemDecoration(spacing));
     }
 

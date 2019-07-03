@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/material_default_padding">
+            android:padding="@dimen/default_space">
 
             <TextView
                 android:id="@+id/lectureNameTextView"
@@ -38,7 +38,7 @@
                 android:id="@+id/tvLDetailsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -68,7 +68,7 @@
                 android:id="@+id/dateHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -89,7 +89,7 @@
                 android:id="@+id/contributorsHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -119,7 +119,7 @@
                 android:id="@+id/contentHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -140,7 +140,7 @@
                 android:id="@+id/methodHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -161,7 +161,7 @@
                 android:id="@+id/targetsHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -182,7 +182,7 @@
                 android:id="@+id/examinationAidsHeaderTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/material_default_padding"
+                android:layout_marginTop="@dimen/default_space"
                 android:autoLink="none"
                 android:fontFamily="sans-serif-medium"
                 android:scrollHorizontally="false"
@@ -212,10 +212,10 @@
         android:id="@+id/buttonBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/material_default_padding"
-        android:paddingTop="@dimen/material_small_padding"
-        android:paddingEnd="@dimen/material_default_padding"
-        android:paddingBottom="@dimen/material_small_padding">
+        android:paddingStart="@dimen/default_space"
+        android:paddingTop="@dimen/small_space"
+        android:paddingEnd="@dimen/default_space"
+        android:paddingBottom="@dimen/small_space">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/appointmentsButton"
@@ -227,7 +227,7 @@
             android:text="@string/lectures_appointments"
             android:textAllCaps="false"
             android:textColor="@color/selector_button_text"
-            app:cornerRadius="@dimen/material_corner_radius" />
+            app:cornerRadius="@dimen/default_corner_radius" />
 
     </FrameLayout>
 

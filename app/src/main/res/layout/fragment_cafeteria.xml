@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
-            android:elevation="@dimen/material_default_elevation"
+            android:elevation="@dimen/default_elevation"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <Spinner

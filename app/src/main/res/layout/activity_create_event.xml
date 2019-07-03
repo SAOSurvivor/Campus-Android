@@ -30,7 +30,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/material_default_padding"
+                    android:layout_margin="@dimen/default_space"
                     android:hint="@string/event_title">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +59,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
-                        android:paddingStart="@dimen/material_default_padding"
+                        android:paddingStart="@dimen/default_space"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
                         tools:ignore="RtlSymmetry"
@@ -73,8 +73,8 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
-                        android:paddingStart="@dimen/material_default_padding"
-                        android:paddingEnd="@dimen/material_default_padding"
+                        android:paddingStart="@dimen/default_space"
+                        android:paddingEnd="@dimen/default_space"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
                         tools:text="11:30" />
@@ -95,7 +95,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
-                        android:paddingStart="@dimen/material_default_padding"
+                        android:paddingStart="@dimen/default_space"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
                         tools:ignore="RtlSymmetry"
@@ -109,8 +109,8 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
-                        android:paddingStart="@dimen/material_default_padding"
-                        android:paddingEnd="@dimen/material_default_padding"
+                        android:paddingStart="@dimen/default_space"
+                        android:paddingEnd="@dimen/default_space"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
                         tools:text="12:30" />
@@ -121,7 +121,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="@dimen/material_default_padding"
+                    android:layout_margin="@dimen/default_space"
                     android:layout_weight="1"
                     android:hint="@string/comment">
 
@@ -143,14 +143,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_margin="@dimen/material_default_padding"
+                    android:layout_margin="@dimen/default_space"
                     android:alpha="0.5"
                     android:enabled="false"
                     android:text="@string/save"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     app:backgroundTint="@color/tum_500"
-                    app:cornerRadius="@dimen/material_corner_radius" />
+                    app:cornerRadius="@dimen/default_corner_radius" />
 
             </LinearLayout>
 

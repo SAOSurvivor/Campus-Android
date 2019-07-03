@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/material_default_padding"
-    android:paddingTop="@dimen/material_small_padding"
-    android:paddingEnd="@dimen/material_default_padding"
-    android:paddingBottom="@dimen/material_small_padding">
+    android:paddingStart="@dimen/default_space"
+    android:paddingTop="@dimen/small_space"
+    android:paddingEnd="@dimen/default_space"
+    android:paddingBottom="@dimen/small_space">
 
     <LinearLayout
         android:layout_width="0dp"

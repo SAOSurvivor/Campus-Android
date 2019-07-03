@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/material_tiny_padding"
-    android:layout_marginBottom="@dimen/material_tiny_padding">
+    android:layout_marginTop="@dimen/tiny_space"
+    android:layout_marginBottom="@dimen/tiny_space">
 
     <TextView
         android:id="@+id/nameTextView"
@@ -27,7 +27,7 @@
         style="@style/CardBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:gravity="end"
         android:textColor="@color/light_green_500"
         app:layout_constraintBottom_toBottomOf="@id/nameTextView"
@@ -40,8 +40,8 @@
         android:id="@+id/favoriteDish"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:padding="@dimen/material_tiny_padding"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:padding="@dimen/tiny_space"
+        android:layout_marginStart="@dimen/small_space"
         android:background="?android:selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"

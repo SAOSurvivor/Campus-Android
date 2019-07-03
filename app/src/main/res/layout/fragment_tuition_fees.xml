@@ -24,7 +24,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 style="@style/StandardCard"
-                android:layout_margin="@dimen/material_default_padding">
+                android:layout_margin="@dimen/default_space">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -36,9 +36,9 @@
                         android:id="@+id/semesterTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginTop="@dimen/material_default_padding"
-                        android:layout_marginEnd="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginTop="@dimen/default_space"
+                        android:layout_marginEnd="@dimen/default_space"
                         android:fontFamily="sans-serif-medium"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:textColor="@color/tum_500"
@@ -47,9 +47,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginTop="@dimen/material_default_padding"
-                        android:layout_marginEnd="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginTop="@dimen/default_space"
+                        android:layout_marginEnd="@dimen/default_space"
                         android:text="@string/outstanding_balance"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -57,9 +57,9 @@
                         android:id="@+id/amountTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginEnd="@dimen/material_default_padding"
-                        android:layout_marginBottom="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginEnd="@dimen/default_space"
+                        android:layout_marginBottom="@dimen/default_space"
                         android:fontFamily="sans-serif-medium"
                         android:textColor="@color/light_green_500"
                         android:textSize="50sp"
@@ -69,8 +69,8 @@
                         android:id="@+id/deadlineTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginEnd="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginEnd="@dimen/default_space"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="16sp"
                         tools:text="Due on Aug 15, 2018" />
@@ -80,13 +80,13 @@
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/material_default_padding"
-                        android:layout_marginTop="@dimen/material_default_padding"
-                        android:layout_marginBottom="@dimen/material_default_padding"
+                        android:layout_marginStart="@dimen/default_space"
+                        android:layout_marginTop="@dimen/default_space"
+                        android:layout_marginBottom="@dimen/default_space"
                         android:text="@string/student_financial_aid"
                         android:textAllCaps="false"
                         android:textColor="@color/tum_500"
-                        app:cornerRadius="@dimen/material_corner_radius" />
+                        app:cornerRadius="@dimen/default_corner_radius" />
 
                 </LinearLayout>
 

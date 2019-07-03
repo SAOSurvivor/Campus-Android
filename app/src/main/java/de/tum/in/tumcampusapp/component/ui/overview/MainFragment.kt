@@ -27,7 +27,6 @@ import de.tum.`in`.tumcampusapp.service.SilenceService
 import de.tum.`in`.tumcampusapp.utils.Const
 import de.tum.`in`.tumcampusapp.utils.NetUtils
 import de.tum.`in`.tumcampusapp.utils.Utils
-import de.tum.`in`.tumcampusapp.utils.observe
 import kotlinx.android.synthetic.main.fragment_main.cardsRecyclerView
 import org.jetbrains.anko.connectivityManager
 import org.jetbrains.anko.support.v4.runOnUiThread
@@ -82,7 +81,7 @@ class MainFragment : BaseFragment<Unit>(
         cardsRecyclerView.adapter = cardsAdapter
 
         // Add equal spacing between CardViews in the RecyclerView
-        val spacing = Math.round(resources.getDimension(R.dimen.material_card_view_padding))
+        val spacing = Math.round(resources.getDimension(R.dimen.default_card_padding))
         cardsRecyclerView.addItemDecoration(EqualSpacingItemDecoration(spacing))
 
         // Swipe gestures

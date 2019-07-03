@@ -4,7 +4,7 @@
     android:id="@+id/timetable_widget_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/material_tiny_padding"
+    android:layout_margin="@dimen/tiny_space"
     android:orientation="horizontal">
 
     <TextView
@@ -51,7 +51,7 @@
         android:layout_below="@id/timetable_widget_date_month"
         android:layout_marginStart="30dp"
         android:orientation="vertical"
-        android:padding="@dimen/material_small_padding"
+        android:padding="@dimen/small_space"
         tools:background="@color/grey_500">
 
         <TextView
@@ -85,7 +85,7 @@
                 android:id="@+id/timetable_widget_event_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/material_tiny_padding"
+                android:layout_marginStart="@dimen/tiny_space"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@android:color/white"

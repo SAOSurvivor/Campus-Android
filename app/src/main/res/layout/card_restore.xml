@@ -9,10 +9,10 @@
         android:gravity="center_horizontal"
         android:onClick="restoreCards"
         android:orientation="vertical"
-        android:paddingStart="@dimen/material_default_padding"
-        android:paddingTop="@dimen/material_small_padding"
-        android:paddingEnd="@dimen/material_default_padding"
-        android:paddingBottom="@dimen/material_small_padding">
+        android:paddingStart="@dimen/default_space"
+        android:paddingTop="@dimen/small_space"
+        android:paddingEnd="@dimen/default_space"
+        android:paddingBottom="@dimen/small_space">
 
         <TextView
             android:id="@+id/textView"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:drawableStart="@drawable/ic_action_restore"
-            android:drawablePadding="@dimen/material_default_padding"
+            android:drawablePadding="@dimen/default_space"
             android:text="@string/restore_all_cards"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

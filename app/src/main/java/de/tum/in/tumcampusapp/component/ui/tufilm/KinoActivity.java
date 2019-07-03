@@ -53,7 +53,7 @@ public class KinoActivity extends ProgressActivity<Void> {
         }
         mPager = findViewById(R.id.pager);
 
-        int margin = getResources().getDimensionPixelSize(R.dimen.material_default_padding);
+        int margin = getResources().getDimensionPixelSize(R.dimen.default_space);
         mPager.setPageMargin(margin);
 
         kinoViewModel.getKinos().observe(this, this::showKinosOrPlaceholder);

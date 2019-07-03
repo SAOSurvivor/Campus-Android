@@ -28,9 +28,9 @@
                 android:background="@drawable/chat_background"
                 android:clipToPadding="false"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="@dimen/material_small_padding"
+                android:dividerHeight="@dimen/small_space"
                 android:drawSelectorOnTop="false"
-                android:paddingBottom="@dimen/material_default_padding"
+                android:paddingBottom="@dimen/default_space"
                 android:stackFromBottom="true"
                 android:transcriptMode="normal" />
 
@@ -44,9 +44,9 @@
                     android:id="@+id/etMessage"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_small_padding"
-                    android:layout_marginTop="@dimen/material_tiny_padding"
-                    android:layout_marginBottom="@dimen/material_tiny_padding"
+                    android:layout_marginStart="@dimen/small_space"
+                    android:layout_marginTop="@dimen/tiny_space"
+                    android:layout_marginBottom="@dimen/tiny_space"
                     android:layout_weight="1"
                     android:hint="@string/send"
                     android:importantForAutofill="no"
@@ -63,8 +63,8 @@
                     android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/send"
-                    android:paddingStart="@dimen/material_small_padding"
-                    android:paddingEnd="@dimen/material_small_padding"
+                    android:paddingStart="@dimen/small_space"
+                    android:paddingEnd="@dimen/small_space"
                     android:src="@drawable/ic_action_send_now"
                     android:tint="@color/tum_500" />
 

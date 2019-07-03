@@ -8,7 +8,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/material_default_elevation">
+        android:elevation="@dimen/default_elevation">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_toolbar"

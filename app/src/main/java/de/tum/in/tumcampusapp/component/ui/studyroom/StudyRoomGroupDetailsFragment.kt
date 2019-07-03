@@ -40,7 +40,7 @@ class StudyRoomGroupDetailsFragment : Fragment() {
             layoutManager = GridLayoutManager(context, spanCount)
             adapter = StudyRoomAdapter(this@StudyRoomGroupDetailsFragment, studyRooms)
 
-            val spacing = Math.round(resources.getDimension(R.dimen.material_card_view_padding))
+            val spacing = Math.round(resources.getDimension(R.dimen.default_card_padding))
             addItemDecoration(GridEqualSpacingDecoration(spacing, spanCount))
         }
         return rootView

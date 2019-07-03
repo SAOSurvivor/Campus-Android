@@ -11,19 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:layout_marginStart="@dimen/material_small_padding"
-        android:layout_marginEnd="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
+        android:layout_marginEnd="@dimen/small_space"
         android:background="@drawable/bg_message_outgoing"
         android:gravity="end"
         android:orientation="vertical"
-        android:padding="@dimen/material_small_padding"
+        android:padding="@dimen/small_space"
         tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/messageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/material_tiny_padding"
+            android:layout_marginBottom="@dimen/tiny_space"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
             android:autoLink="all"
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:paddingEnd="@dimen/material_tiny_padding"
+                android:paddingEnd="@dimen/tiny_space"
                 android:textSize="12sp"
                 tools:ignore="RtlSymmetry"
                 tools:text="Time" />

@@ -113,7 +113,7 @@ class InformationActivity : BaseActivity(R.layout.activity_information) {
             text = label
             layoutParams = rowParams
 
-            val padding = resources.getDimensionPixelSize(R.dimen.material_small_padding)
+            val padding = resources.getDimensionPixelSize(R.dimen.small_space)
             setPadding(0, 0, padding, 0)
         }
         tableRow.addView(labelTextView)

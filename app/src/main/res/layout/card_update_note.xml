@@ -8,9 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingStart="@dimen/material_default_padding"
-        android:paddingTop="@dimen/material_default_padding"
-        android:paddingBottom="@dimen/material_default_padding">
+        android:paddingStart="@dimen/default_space"
+        android:paddingTop="@dimen/default_space"
+        android:paddingBottom="@dimen/default_space">
         <TextView
             android:id="@+id/update_note_title"
             android:layout_width="wrap_content"
@@ -18,8 +18,8 @@
             style="@style/CardTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/material_tiny_padding"
-            android:layout_marginEnd="@dimen/material_small_padding"
+            android:layout_marginBottom="@dimen/tiny_space"
+            android:layout_marginEnd="@dimen/small_space"
             android:text="@string/update_note_title"/>
         <TextView
             android:id="@+id/update_note_subtitle"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/update_note_title"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="@dimen/material_default_padding"
+            android:layout_marginEnd="@dimen/default_space"
             style="@style/CardSource"/>
         <TextView
             android:id="@+id/update_note_message"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/update_note_subtitle"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="@dimen/material_default_padding"
+            android:layout_marginEnd="@dimen/default_space"
             style="@style/CardBody"/>
         <ImageView
             android:id="@+id/cardMoreIcon"

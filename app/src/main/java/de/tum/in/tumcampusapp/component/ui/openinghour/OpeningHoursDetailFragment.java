@@ -73,7 +73,7 @@ public class OpeningHoursDetailFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(new OpeningHoursDetailAdapter(locations));
 
-        int spacing = Math.round(getResources().getDimension(R.dimen.material_card_view_padding));
+        int spacing = Math.round(getResources().getDimension(R.dimen.default_card_padding));
         recyclerView.addItemDecoration(new EqualSpacingItemDecoration(spacing));
 
         return rootView;

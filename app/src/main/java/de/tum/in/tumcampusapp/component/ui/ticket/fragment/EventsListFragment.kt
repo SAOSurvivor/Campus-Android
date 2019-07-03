@@ -63,7 +63,7 @@ class EventsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         eventsRecyclerView.itemAnimator = DefaultItemAnimator()
         eventsRecyclerView.adapter = EventsAdapter(context)
 
-        val spacing = Math.round(resources.getDimension(R.dimen.material_card_view_padding))
+        val spacing = Math.round(resources.getDimension(R.dimen.default_card_padding))
         eventsRecyclerView.addItemDecoration(EqualSpacingItemDecoration(spacing))
 
         eventsRefreshLayout.setOnRefreshListener(this@EventsListFragment)

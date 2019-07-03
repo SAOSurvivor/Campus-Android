@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/material_small_padding"
-    android:paddingEnd="@dimen/material_default_padding"
-    android:paddingStart="@dimen/material_default_padding"
-    android:paddingTop="@dimen/material_small_padding">
+    android:paddingBottom="@dimen/small_space"
+    android:paddingEnd="@dimen/default_space"
+    android:paddingStart="@dimen/default_space"
+    android:paddingTop="@dimen/small_space">
 
     <TextView
         android:id="@+id/barrierfreeContactNameTextView"
@@ -23,7 +23,7 @@
         android:id="@+id/barrierfreeContactPhoneTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/material_small_padding"
+        android:layout_marginTop="@dimen/small_space"
         android:autoLink="phone"
         android:textSize="@dimen/semilarge_text_size"
         tools:text="Person Phone Number"/>
@@ -32,7 +32,7 @@
         android:id="@+id/barrierfreeContactEmailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/material_tiny_padding"
+        android:layout_marginTop="@dimen/tiny_space"
         android:autoLink="email"
         android:textSize="@dimen/semilarge_text_size"
         tools:text="Person E-mail"/>
@@ -41,7 +41,7 @@
         android:id="@+id/barrierfreeContactMoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/material_small_padding"
+        android:layout_marginTop="@dimen/small_space"
         android:clickable="true"
         android:focusable="true"
         android:onClick="onClick"

@@ -18,14 +18,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/material_default_padding"
+                android:layout_margin="@dimen/default_space"
                 android:orientation="vertical"
                 android:transitionName="@string/transition_card">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/material_small_padding"
+                    android:layout_marginBottom="@dimen/small_space"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/lrz_id"
                     android:textColor="@color/tum_500" />
@@ -49,7 +49,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/material_small_padding"
+                    android:layout_marginTop="@dimen/small_space"
                     android:hint="@string/password">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -65,7 +65,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/material_default_padding"
+                    android:layout_marginTop="@dimen/default_space"
                     android:text="@string/password_gets_not_saved"
                     android:textSize="15sp" />
 
@@ -73,10 +73,10 @@
                     android:id="@+id/eduroam_config_error"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/material_default_padding"
-                    android:layout_marginBottom="@dimen/material_default_padding"
+                    android:layout_marginTop="@dimen/default_space"
+                    android:layout_marginBottom="@dimen/default_space"
                     android:drawableStart="@drawable/ic_help_red"
-                    android:drawablePadding="@dimen/material_default_padding"
+                    android:drawablePadding="@dimen/default_space"
                     android:text="@string/pin_lock_rem"
                     android:textColor="#FF0000"
                     android:textSize="15sp"
@@ -86,8 +86,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/material_default_padding"
-                    android:layout_marginBottom="@dimen/material_small_padding"
+                    android:layout_marginTop="@dimen/default_space"
+                    android:layout_marginBottom="@dimen/small_space"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/data_backup"
                     android:textColor="@color/tum_500" />
@@ -103,11 +103,11 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/material_small_padding"
+                    android:layout_marginTop="@dimen/small_space"
                     android:onClick="showDataBackupSettings"
                     android:text="@string/disable_data_backup"
                     android:textAllCaps="false"
-                    app:cornerRadius="@dimen/material_corner_radius" />
+                    app:cornerRadius="@dimen/default_corner_radius" />
 
             </LinearLayout>
 
@@ -128,10 +128,10 @@
             android:background="@color/white"
             android:gravity="end"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/material_default_padding"
-            android:paddingTop="@dimen/material_small_padding"
-            android:paddingEnd="@dimen/material_default_padding"
-            android:paddingBottom="@dimen/material_small_padding">
+            android:paddingStart="@dimen/default_space"
+            android:paddingTop="@dimen/small_space"
+            android:paddingEnd="@dimen/default_space"
+            android:paddingBottom="@dimen/small_space">
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -141,7 +141,7 @@
                 android:onClick="onClickCancel"
                 android:text="@android:string/cancel"
                 android:textAllCaps="false"
-                app:cornerRadius="@dimen/material_corner_radius" />
+                app:cornerRadius="@dimen/default_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button"
@@ -151,7 +151,7 @@
                 android:onClick="onClickSetup"
                 android:text="@string/setup"
                 android:textAllCaps="false"
-                app:cornerRadius="@dimen/material_corner_radius" />
+                app:cornerRadius="@dimen/default_corner_radius" />
 
         </LinearLayout>
 

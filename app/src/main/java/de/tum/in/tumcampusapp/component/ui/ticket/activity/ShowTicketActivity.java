@@ -108,7 +108,7 @@ public class ShowTicketActivity extends BaseActivity {
         ticketAmounts.setLayoutManager(new LinearLayoutManager(this));
         ticketAmounts.setHasFixedSize(true);
         ticketAmounts.setNestedScrollingEnabled(false);
-        int spacing = Math.round(getResources().getDimension(R.dimen.material_tiny_padding));
+        int spacing = Math.round(getResources().getDimension(R.dimen.tiny_space));
         ticketAmounts.addItemDecoration(new EqualSpacingItemDecoration(spacing));
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);

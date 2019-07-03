@@ -12,7 +12,7 @@
         android:background="@drawable/widget_header_rounded_corners_background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/material_small_padding">
+        android:padding="@dimen/small_space">
 
         <LinearLayout
             android:layout_width="0dp"

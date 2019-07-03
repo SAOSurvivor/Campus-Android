@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="@dimen/material_default_padding">
+    android:padding="@dimen/default_space">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView"
         android:layout_width="@dimen/icon_large"
         android:layout_height="@dimen/icon_large"
         android:layout_gravity="center_vertical"
-        android:layout_marginEnd="@dimen/material_default_padding"
+        android:layout_marginEnd="@dimen/default_space"
         android:background="@drawable/circle_background"
         android:src="@drawable/photo_not_available" />
 

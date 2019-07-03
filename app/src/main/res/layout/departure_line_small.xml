@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/material_tiny_padding"
-    android:paddingBottom="@dimen/material_tiny_padding">
+    android:paddingTop="@dimen/tiny_space"
+    android:paddingBottom="@dimen/tiny_space">
 
     <TextView
         android:id="@+id/line_symbol"
@@ -25,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:layout_weight="1"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="15sp"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:minWidth="50dp">
 
         <TextView

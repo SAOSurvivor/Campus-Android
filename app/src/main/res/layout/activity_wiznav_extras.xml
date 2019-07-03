@@ -26,13 +26,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/material_small_padding">
+                android:padding="@dimen/small_space">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_small_padding"
-                    android:layout_marginTop="@dimen/material_small_padding"
+                    android:layout_marginStart="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/step_3"
                     android:textAllCaps="false"
@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/material_default_padding"
+                    android:padding="@dimen/default_space"
                     android:text="@string/set_silent_mode"
                     android:textSize="15sp" />
 
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/material_default_padding"
+                    android:padding="@dimen/default_space"
                     android:text="@string/set_lecture_chat"
                     android:textSize="15sp" />
 
@@ -73,12 +73,12 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/material_small_padding"
+                    android:layout_marginStart="@dimen/small_space"
                     android:onClick="onClickTerms"
                     android:text="@string/open_chat_terms"
                     android:textAllCaps="false"
                     android:textColor="@color/tum_500"
-                    app:cornerRadius="@dimen/material_corner_radius" />
+                    app:cornerRadius="@dimen/default_corner_radius" />
 
                 <CheckBox
                     android:id="@+id/chk_bug_reports"
@@ -93,7 +93,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/material_default_padding"
+                    android:padding="@dimen/default_space"
                     android:text="@string/set_bug_reports"
                     android:textSize="15sp" />
 
@@ -115,14 +115,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="@dimen/material_small_padding"
-        android:layout_marginEnd="@dimen/material_default_padding"
-        android:layout_marginBottom="@dimen/material_small_padding"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_marginEnd="@dimen/default_space"
+        android:layout_marginBottom="@dimen/small_space"
         android:onClick="onClickDone"
         android:text="@string/goto_tumcampus"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:backgroundTint="@color/tum_500"
-        app:cornerRadius="@dimen/material_corner_radius" />
+        app:cornerRadius="@dimen/default_corner_radius" />
 
 </LinearLayout>

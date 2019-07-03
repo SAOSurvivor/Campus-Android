@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/material_tiny_padding"
-    android:paddingBottom="@dimen/material_tiny_padding">
+    android:paddingTop="@dimen/tiny_space"
+    android:paddingBottom="@dimen/tiny_space">
 
     <TextView
         android:id="@+id/nameTextView"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:gravity="end"
         android:minWidth="50dp"
         android:textColor="@color/light_green_500"
@@ -36,9 +36,9 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/material_small_padding"
+        android:layout_marginStart="@dimen/small_space"
         android:background="?android:selectableItemBackgroundBorderless"
-        android:padding="@dimen/material_tiny_padding"
+        android:padding="@dimen/tiny_space"
         android:src="@drawable/star_toggle" />
 
 </LinearLayout>

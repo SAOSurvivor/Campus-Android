@@ -6,4 +6,4 @@
     android:textAppearance="@android:style/TextAppearance.Medium"
     android:textColor="@color/tum_500"
     tools:text="Lorem ipsum"
-    android:paddingBottom="@dimen/material_small_padding" />
+    android:paddingBottom="@dimen/small_space" />

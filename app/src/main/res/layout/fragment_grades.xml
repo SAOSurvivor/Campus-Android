@@ -44,7 +44,7 @@
             android:id="@+id/chartsContainer"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:padding="@dimen/material_default_padding"
+            android:padding="@dimen/default_space"
             android:visibility="invisible">
 
             <com.github.mikephil.charting.charts.PieChart
@@ -83,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EEE"
-        android:padding="@dimen/material_default_padding">
+        android:padding="@dimen/default_space">
 
         <TextView
             android:id="@+id/averageGradeTextView"

@@ -52,7 +52,7 @@
                     <ScrollView
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_margin="@dimen/material_default_padding"
+                        android:layout_margin="@dimen/default_space"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/ticket_qr_code"
@@ -81,7 +81,7 @@
                                 android:id="@+id/ticket_event_date_time"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/material_default_padding"
+                                android:layout_marginTop="@dimen/default_space"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 tools:text="20.04.2018 12:45" />
 
@@ -96,7 +96,7 @@
                                 android:id="@+id/ticket_event_redemption_state"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/material_small_padding"
+                                android:layout_marginTop="@dimen/small_space"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 tools:text="Redeemed: No" />
 
