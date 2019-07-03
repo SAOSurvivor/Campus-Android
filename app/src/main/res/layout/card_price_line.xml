@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_space"
         android:gravity="end"
-        android:textColor="@color/light_green_500"
+        android:textColor="@color/light_green_600"
         app:layout_constraintBottom_toBottomOf="@id/nameTextView"
         app:layout_constraintEnd_toStartOf="@id/favoriteDish"
         app:layout_constraintStart_toEndOf="@id/nameTextView"

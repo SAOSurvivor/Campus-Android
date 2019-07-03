@@ -28,7 +28,7 @@
         android:layout_marginStart="@dimen/small_space"
         android:gravity="end"
         android:minWidth="50dp"
-        android:textColor="@color/light_green_500"
+        android:textColor="@color/light_green_600"
         tools:text="Price" />
 
     <ImageView

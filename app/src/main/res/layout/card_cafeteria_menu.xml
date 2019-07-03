@@ -43,7 +43,7 @@
             android:layout_marginTop="@dimen/small_space"
             android:layout_marginStart="@dimen/default_space"
             android:layout_marginEnd="@dimen/default_space"
-            android:textColor="@color/light_green_500"
+            android:textColor="@color/light_green_600"
             tools:text="Closes in 45 mins" />
 
         <androidx.recyclerview.widget.RecyclerView

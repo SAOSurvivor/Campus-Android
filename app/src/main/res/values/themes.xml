@@ -12,7 +12,6 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="colorError">@color/red_500</item>
-        <!--<item name="android:textCursorDrawable">@drawable/cursor_text_field_colorful</item>-->
 
         <!-- Text style -->
         <item name="android:textColorPrimary">@color/black_alpha_87</item>
@@ -42,12 +41,6 @@
     <style name="AppTheme.Startup">
         <item name="colorPrimaryDark">@android:color/white</item>
         <item name="android:windowBackground">@android:color/white</item>
-
-        <!-- Light system UI -->
-        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
-
-        <!-- Light navigation bar -->
-        <!--<item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>-->
         <item name="android:navigationBarColor">@android:color/white</item>
     </style>
 

@@ -4,9 +4,8 @@
     <!-- Attributes specific to API 23 -->
     <style name="Base.AppTheme.V23" parent="Base.AppTheme.V21">
         <item name="android:windowLightStatusBar">true</item>
-
     </style>
 
-    <style name="AppTheme" parent="Base.AppTheme.V23"/>
+    <style name="Base.AppTheme" parent="Base.AppTheme.V23"/>
 
 </resources>

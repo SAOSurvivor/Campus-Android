@@ -2,12 +2,11 @@
 <resources>
 
     <!-- Attributes specific to API 27 -->
-    <style name="Base.AppTheme.V27" parent="Base.AppTheme.V21">
-        <item name="android:windowLightStatusBar">true</item>
+    <style name="Base.AppTheme.V27" parent="Base.AppTheme.V23">
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:navigationBarDividerColor">@color/grey_300</item>
     </style>
 
-    <style name="AppTheme" parent="Base.AppTheme.V27"/>
+    <style name="Base.AppTheme" parent="Base.AppTheme.V27"/>
 
 </resources>
