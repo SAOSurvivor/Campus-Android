@@ -1,9 +1,13 @@
 package de.tum.in.tumcampusapp.component.ui.openinghour;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.component.other.generic.activity.BaseActivity;
+import de.tum.in.tumcampusapp.component.ui.smartmic.BarcodeActivity;
+import de.tum.in.tumcampusapp.component.ui.smartmic.SmartMicSend;
 
 /**
  * An activity representing a list of Items. This activity has different
@@ -28,10 +32,16 @@ public class OpeningHoursListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.contentFrame, OpeningHoursListFragment.newInstance())
-                    .commit();
+            Log.d("rishabh", "in oncreate");
+            Intent intent = new Intent(this, SmartMicSend.class);
+// To pass any data to next activity
+//            intent.putExtra("keyIdentifier", value)
+// start your next activity
+            startActivity(intent);
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.contentFrame, OpeningHoursListFragment.newInstance())
+//                    .commit();
         }
     }
 

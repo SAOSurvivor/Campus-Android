@@ -187,6 +187,12 @@ dependencies {
 
     // TicketSale
     implementation 'com.stripe:stripe-android:6.1.2'
+
+    //SmartMic
+//    implementation 'com.google.android.gms:play-services:7.8+'
+    //    implementation 'com.google.android.gms:play-services-base:16.1.0'
+//    implementation 'com.google.android.gms:play-services-location:7.8+'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -5,6 +5,9 @@
     android:installLocation="auto"
     tools:ignore="UnusedAttribute">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
     <!-- Standard access rights -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -30,7 +33,7 @@
 
     <!-- Allow vibration for chat messages -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    
     <!-- As AndroidLint suggests: We do not necessarily need camera access -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -169,6 +172,24 @@
         </activity>
         <activity
             android:name=".component.ui.openinghour.OpeningHoursListActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/opening_hours"
+            android:parentActivityName=".component.ui.overview.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".component.ui.overview.MainActivity" />
+        </activity>
+        <activity
+            android:name=".component.ui.smartmic.BarcodeActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/opening_hours"
+            android:parentActivityName=".component.ui.overview.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".component.ui.overview.MainActivity" />
+        </activity>
+        <activity
+            android:name=".component.ui.smartmic.SmartMicSend"
             android:configChanges="orientation|screenSize"
             android:label="@string/opening_hours"
             android:parentActivityName=".component.ui.overview.MainActivity">

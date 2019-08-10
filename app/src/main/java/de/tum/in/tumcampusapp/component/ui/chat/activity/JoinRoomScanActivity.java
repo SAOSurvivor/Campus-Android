@@ -41,6 +41,8 @@ public class JoinRoomScanActivity extends Activity implements ZXingScannerView.R
         super.onPause();
     }
 
+
+
     @Override
     public void handleResult(Result rawResult) {
         // Do something with the result here

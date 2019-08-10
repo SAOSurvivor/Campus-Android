@@ -2,6 +2,7 @@ package de.tum.in.tumcampusapp.component.ui.openinghour;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,8 @@ import org.jetbrains.annotations.NotNull;
 
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.component.other.generic.fragment.BaseFragment;
+import de.tum.in.tumcampusapp.component.ui.smartmic.BarcodeActivity;
+import de.tum.in.tumcampusapp.component.ui.smartmic.SmartMicSend;
 import kotlin.Unit;
 
 public class OpeningHoursListFragment extends BaseFragment<Unit>
@@ -52,6 +55,12 @@ public class OpeningHoursListFragment extends BaseFragment<Unit>
                           getString(R.string.mensa_pasing),
                           getString(R.string.mensa_weihenstephan)};
         adapter = new ArrayAdapter<>(requireContext(), layout, android.R.id.text1, names);
+        Log.d("rishabh", "in oncreate");
+        Intent intent = new Intent(getActivity(), SmartMicSend.class);
+// To pass any data to next activity
+//            intent.putExtra("keyIdentifier", value)
+// start your next activity
+        startActivity(intent);
     }
 
     @Override
