@@ -119,7 +119,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_outline_access_time_24px"
+                android:drawableTop="@drawable/ic_mic"
                 android:drawablePadding="@dimen/material_tiny_padding"
                 android:gravity="center_horizontal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"

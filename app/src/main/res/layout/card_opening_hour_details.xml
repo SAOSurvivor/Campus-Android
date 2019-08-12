@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Opening Hours"
-            android:drawableStart="@drawable/ic_outline_access_time_24px"
+            android:drawableStart="@drawable/ic_mic"
             android:drawablePadding="@dimen/material_small_padding"
             android:drawableTint="@color/text_dark_gray"/>
 

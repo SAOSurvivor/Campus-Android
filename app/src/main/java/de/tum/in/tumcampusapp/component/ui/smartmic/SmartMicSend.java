@@ -5,6 +5,8 @@ package de.tum.in.tumcampusapp.component.ui.smartmic;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
@@ -15,8 +17,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 //import com.google.android.gms.vision.barcode.Barcode;
@@ -36,7 +41,7 @@ import java.net.UnknownHostException;
 import de.tum.in.tumcampusapp.R;
 import de.tum.in.tumcampusapp.component.ui.chat.activity.JoinRoomScanActivity;
 
-public class SmartMicSend extends Activity{
+public class SmartMicSend extends AppCompatActivity {
     private Button startButton,stopButton,getIpButton, sendRequestButton, sosButton;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     private String [] permissions = {Manifest.permission.RECORD_AUDIO};
@@ -49,6 +54,8 @@ public class SmartMicSend extends Activity{
     private String clientName = "Rami";
     private boolean requestServerActive = false;
     private boolean recorderActive = false;
+    private int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
+    private int MY_PERMISSIONS_REQUEST_CAMERA = 2;
 
     AudioRecord recorder;
 
@@ -66,7 +73,9 @@ public class SmartMicSend extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
-
+//        Toolbar toolbar = new Toolbar(findViewById(R.id.main_toolbar));
+        setSupportActionBar(findViewById(R.id.main_toolbar));
+        getSupportActionBar().setTitle("Smart Mic");
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION,sampleRate,channelConfig,audioFormat,minBufSize);
         startButton = (Button) findViewById (R.id.start_button);
         stopButton = (Button) findViewById (R.id.stop_button);
@@ -90,8 +99,13 @@ public class SmartMicSend extends Activity{
             status = false;
             recorder.release();
             Log.d("VS","Recorder released");
+
+            startButton.setText("Start");
+
             startButton.setEnabled(false);
+
             stopButton.setEnabled(false);
+
         }
 
     };
@@ -109,6 +123,7 @@ public class SmartMicSend extends Activity{
         @Override
         public void onClick(View arg0) {
             status = true;
+            startButton.setText("Streaming");
             startStreaming();
         }
 
@@ -155,7 +170,62 @@ public class SmartMicSend extends Activity{
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void startStreaming() {
+    @Override
+    protected void onStart() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.RECORD_AUDIO)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        MY_PERMISSIONS_REQUEST_RECORD_AUDIO);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        } else {
+            // Permission has already been granted
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.CAMERA)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA},
+                        MY_PERMISSIONS_REQUEST_CAMERA);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        } else {
+            // Permission has already been granted
+        }
+        super.onStart();
+    }
+
+    public void startStreaming(){
 
 
         Thread streamThread = new Thread(new Runnable() {
@@ -187,6 +257,7 @@ public class SmartMicSend extends Activity{
                     canceler.setEnabled(true);
                     suppressor.setEnabled(true);
                     recorder.startRecording();
+
 
 
                     while(status == true) {
