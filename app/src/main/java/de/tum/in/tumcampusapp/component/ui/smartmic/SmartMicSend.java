@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -43,6 +44,7 @@ import de.tum.in.tumcampusapp.component.ui.chat.activity.JoinRoomScanActivity;
 
 public class SmartMicSend extends AppCompatActivity {
     private Button startButton,stopButton,getIpButton, sendRequestButton, sosButton;
+    private EditText nameEditText;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     private String [] permissions = {Manifest.permission.RECORD_AUDIO};
     private String address = "";
@@ -64,10 +66,11 @@ public class SmartMicSend extends AppCompatActivity {
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
     //    private int audioFormat = AudioFormat.ENCODING_PCM_FLOAT;
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
+    final int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
     private boolean status = true;
     String ipstring;
     JoinRoomScanActivity joinRoomScanActivity;
+    private DatagramSocket socketStream;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,8 @@ public class SmartMicSend extends AppCompatActivity {
         getIpButton = (Button) findViewById(R.id.get_ip_button);
         sendRequestButton = (Button) findViewById(R.id.send_request_button);
         sosButton = (Button) findViewById(R.id.sos);
+        nameEditText = (EditText) findViewById(R.id.name_text_view);
+
         startButton.setEnabled(false);
         stopButton.setEnabled(false);
         startButton.setOnClickListener (startListener);
@@ -90,6 +95,7 @@ public class SmartMicSend extends AppCompatActivity {
         sendRequestButton.setOnClickListener(sendRequestListener);
         sosButton.setOnClickListener(sosListener);
         joinRoomScanActivity = new JoinRoomScanActivity();
+        receiveQueue();
     }
 
     private final View.OnClickListener stopListener = new View.OnClickListener() {
@@ -99,6 +105,9 @@ public class SmartMicSend extends AppCompatActivity {
             status = false;
             recorder.release();
             Log.d("VS","Recorder released");
+
+            sendRequestButton.setText("Request");
+            socketStream.close();
 
             startButton.setText("Start");
 
@@ -114,7 +123,13 @@ public class SmartMicSend extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            sendRequest(1);
+            if (sendRequestButton.getText().toString().equals("Request")){
+                sendRequest(1);
+            }
+            else if (sendRequestButton.getText().toString().equals("Repeal Request")){
+                sendRequest(3);
+            }
+
         }
     };
 
@@ -124,6 +139,7 @@ public class SmartMicSend extends AppCompatActivity {
         public void onClick(View arg0) {
             status = true;
             startButton.setText("Streaming");
+            sendRequestButton.setText("Request");
             startStreaming();
         }
 
@@ -236,7 +252,7 @@ public class SmartMicSend extends AppCompatActivity {
 
                     int dataSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
                     Log.d("VS", "data size: " + dataSize);
-                    DatagramSocket socket = new DatagramSocket();
+                    socketStream = new DatagramSocket();
                     Log.d("VS", "Socket Created");
 
                     byte[] buffer = new byte[minBufSize];
@@ -247,11 +263,16 @@ public class SmartMicSend extends AppCompatActivity {
                     final InetAddress destination = InetAddress.getByName(ipstring);
                     Log.d("VS", "Address retrieved");
 
-                    ActivityCompat.requestPermissions(SmartMicSend.this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
-
-//                    recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION,sampleRate,AudioFormat.CHANNEL_CONFIGURATION_MONO,AudioFormat.ENCODING_PCM_16BIT,minBufSize*10);
-                    Log.d("VS", "Recorder initialized");
-
+                    SmartMicSend.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ActivityCompat.requestPermissions(SmartMicSend.this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+                        }
+                    });
+                    if(recorder == null){
+                        Log.d("VS", "Recorder initialized");
+                    }
+                    recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION,sampleRate,channelConfig,audioFormat,minBufSize);
                     AcousticEchoCanceler canceler = AcousticEchoCanceler.create(recorder.getAudioSessionId());
                     NoiseSuppressor suppressor = NoiseSuppressor.create(recorder.getAudioSessionId());
                     canceler.setEnabled(true);
@@ -264,13 +285,13 @@ public class SmartMicSend extends AppCompatActivity {
 
 
                         //reading data from MIC into buffer
-                        minBufSize = recorder.read(buffer, 0, buffer.length);
+                        int bufSize = recorder.read(buffer, 0, buffer.length);
 
                         //putting buffer in the packet
                         packet = new DatagramPacket (buffer,buffer.length,destination,port);
 
-                        socket.send(packet);
-                        System.out.println("MinBufferSize: " +minBufSize);
+                        socketStream.send(packet);
+                        System.out.println("MinBufferSize: " +bufSize);
 
 
                     }
@@ -300,14 +321,30 @@ public class SmartMicSend extends AppCompatActivity {
                     final InetAddress destination = InetAddress.getByName(ipstring);
                     byte[] message = new byte[minBufSize];
                     if(flag == 1){
-                        message = clientName.getBytes("UTF-8");
+                        message = nameEditText.getText().toString().getBytes("UTF-8");
+                        SmartMicSend.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                sendRequestButton.setText("Repeal Request");
+                            }
+                        });
                     }
-                    else{
+                    else if(flag == 2){
                         message = "SOS:".getBytes("UTF-8");
                     }
-                    dPacket = new DatagramPacket (message,message.length,destination,request_port_send);
+                    else if (flag == 3){
+                        message = "PULLOUT:".getBytes("UTF-8");
+                        SmartMicSend.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                sendRequestButton.setText("Request");
+                            }
+                        });
+                    }
+
+                    dPacket = new DatagramPacket(message,message.length,destination,request_port_send);
                     dSocket.send(dPacket);
-                    receiveQueue();
+
 
                 } catch (SocketException e) {
                     e.printStackTrace();
@@ -327,11 +364,17 @@ public class SmartMicSend extends AppCompatActivity {
         Thread receiveThread = new Thread(new Runnable(){
             @Override
             public void run() {
+                DatagramSocket dSocket = null;
+                try {
+                    dSocket = new DatagramSocket(request_port_listen);
+                } catch (SocketException e) {
+                    e.printStackTrace();
+                }
                 while (true) {
                     byte[] lMsg = new byte[4096];
-                    DatagramSocket dSocket = null;
+
                     try {
-                        dSocket = new DatagramSocket(request_port_listen);
+
                         DatagramPacket dPacket = new DatagramPacket(lMsg, lMsg.length);
                         final InetAddress destination = InetAddress.getByName(ipstring);
                         byte[] message = new byte[minBufSize];
@@ -350,7 +393,6 @@ public class SmartMicSend extends AppCompatActivity {
                                 }
                             }
                         });
-//                    dSocket.close();
                     } catch (SocketException e) {
                         e.printStackTrace();
                     } catch (UnknownHostException e) {
@@ -358,9 +400,14 @@ public class SmartMicSend extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    finally {
+                       //
+                    }
                 }
+              //  dSocket.close();
             }
         });
         receiveThread.start();
     }
 }
+

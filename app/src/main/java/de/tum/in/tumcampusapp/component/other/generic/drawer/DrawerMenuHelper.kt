@@ -138,7 +138,7 @@ class DrawerMenuHelper(
                 NavItem.FragmentDestination(R.string.person_search, R.drawable.ic_outline_people_outline_24px, PersonSearchFragment::class.java, true),
                 NavItem.FragmentDestination(R.string.news, R.drawable.ic_rss, NewsFragment::class.java),
                 NavItem.FragmentDestination(R.string.events_tickets, R.drawable.tickets, EventsFragment::class.java),
-                NavItem.FragmentDestination(R.string.barrier_free, R.drawable.ic_mic, BarrierFreeInfoFragment::class.java),
+                NavItem.FragmentDestination(R.string.barrier_free, R.drawable.ic_outline_cloud_done_24px, BarrierFreeInfoFragment::class.java),
                 NavItem.FragmentDestination(R.string.opening_hours, R.drawable.ic_mic, OpeningHoursListFragment::class.java)
         )
 
