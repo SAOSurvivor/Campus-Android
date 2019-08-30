@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.AudioFormat;
+import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.media.audiofx.AcousticEchoCanceler;
@@ -53,13 +54,15 @@ public class SmartMicSend extends AppCompatActivity {
     private int port = 50005;
     private int request_port_listen = 50008;
     private int request_port_send = 50009;
-    private String clientName = "Rami";
+    private String clientName = "John";
     private boolean requestServerActive = false;
     private boolean recorderActive = false;
     private int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
     private int MY_PERMISSIONS_REQUEST_CAMERA = 2;
+    private AcousticEchoCanceler canceler;
+    private NoiseSuppressor suppressor;
 
-    AudioRecord recorder;
+    private AudioRecord recorder;
 
     private int sampleRate = 16000 ; // 44100 for music
     //    private int sampleRate = 48000 ; // 44100 for music
@@ -89,6 +92,7 @@ public class SmartMicSend extends AppCompatActivity {
 
         startButton.setEnabled(false);
         stopButton.setEnabled(false);
+        sendRequestButton.setEnabled(true);
         startButton.setOnClickListener (startListener);
         stopButton.setOnClickListener (stopListener);
         getIpButton.setOnClickListener(getIPListener);
@@ -104,16 +108,18 @@ public class SmartMicSend extends AppCompatActivity {
         public void onClick(View arg0) {
             status = false;
             recorder.release();
+            recorder = null;
             Log.d("VS","Recorder released");
 
-            sendRequestButton.setText("Request");
+            sendRequestButton.setText("Join Queue");
             socketStream.close();
 
-            startButton.setText("Start");
+            startButton.setText("Ask Questions");
 
             startButton.setEnabled(false);
 
             stopButton.setEnabled(false);
+            sendRequestButton.setEnabled(true);
 
         }
 
@@ -123,10 +129,10 @@ public class SmartMicSend extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if (sendRequestButton.getText().toString().equals("Request")){
+            if (sendRequestButton.getText().toString().equals("Join Queue")){
                 sendRequest(1);
             }
-            else if (sendRequestButton.getText().toString().equals("Repeal Request")){
+            else if (sendRequestButton.getText().toString().equals("Leave Queue")){
                 sendRequest(3);
             }
 
@@ -139,7 +145,8 @@ public class SmartMicSend extends AppCompatActivity {
         public void onClick(View arg0) {
             status = true;
             startButton.setText("Streaming");
-            sendRequestButton.setText("Request");
+            sendRequestButton.setText("Join Queue");
+            sendRequestButton.setEnabled(false);
             startStreaming();
         }
 
@@ -174,12 +181,6 @@ public class SmartMicSend extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 if (data != null){
                     ipstring = data.getStringExtra("name");
-                    Log.d("sumant", ipstring);
-                }
-                else
-                {
-//                    ipstring = "192.168.0.102";
-                    Log.d("Sumant", ipstring);
                 }
             }
         }
@@ -251,7 +252,6 @@ public class SmartMicSend extends AppCompatActivity {
                 try {
 
                     int dataSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
-                    Log.d("VS", "data size: " + dataSize);
                     socketStream = new DatagramSocket();
                     Log.d("VS", "Socket Created");
 
@@ -270,13 +270,25 @@ public class SmartMicSend extends AppCompatActivity {
                         }
                     });
                     if(recorder == null){
+//                        AudioManager manager = AudioManager.cre;
                         Log.d("VS", "Recorder initialized");
+                        recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION,sampleRate,channelConfig,audioFormat,minBufSize);
                     }
-                    recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION,sampleRate,channelConfig,audioFormat,minBufSize);
-                    AcousticEchoCanceler canceler = AcousticEchoCanceler.create(recorder.getAudioSessionId());
-                    NoiseSuppressor suppressor = NoiseSuppressor.create(recorder.getAudioSessionId());
-                    canceler.setEnabled(true);
-                    suppressor.setEnabled(true);
+                    if(AcousticEchoCanceler.isAvailable())
+                    {
+                        Log.d("VVS", String.valueOf(recorder.getAudioSessionId()));
+                        canceler = AcousticEchoCanceler.create(recorder.getAudioSessionId());
+                        Log.d("VS", "Echo canceller");
+                        if(canceler != null){
+                            canceler.setEnabled(true);
+                        }
+                    }
+                    if(NoiseSuppressor.isAvailable()){
+                        suppressor = NoiseSuppressor.create(recorder.getAudioSessionId());
+                        if(suppressor != null){
+                            suppressor.setEnabled(true);
+                        }
+                    }
                     recorder.startRecording();
 
 
@@ -325,7 +337,7 @@ public class SmartMicSend extends AppCompatActivity {
                         SmartMicSend.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                sendRequestButton.setText("Repeal Request");
+                                sendRequestButton.setText("Leave Queue");
                             }
                         });
                     }
@@ -337,7 +349,7 @@ public class SmartMicSend extends AppCompatActivity {
                         SmartMicSend.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                sendRequestButton.setText("Request");
+                                sendRequestButton.setText("Join Queue");
                             }
                         });
                     }
@@ -385,8 +397,6 @@ public class SmartMicSend extends AppCompatActivity {
                         SmartMicSend.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Log.d("Sumant", data);
-                                Toast.makeText(SmartMicSend.this, data, Toast.LENGTH_LONG).show();
                                 if (data.equals("ACK")) {
                                     startButton.setEnabled(true);
                                     stopButton.setEnabled(true);

@@ -24,8 +24,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="60dp"
-        android:text="Rami"
         android:gravity="center"
+        android:hint="Name"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -36,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
         app:cornerRadius="@dimen/material_corner_radius"
-        android:text="Start" />
+        android:text="Ask Questions" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -47,7 +47,7 @@
         android:layout_below="@+id/start_button"
         android:layout_marginTop="20dp"
         app:cornerRadius="@dimen/material_corner_radius"
-        android:text="Stop" />
+        android:text="Stop Conversation" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -58,7 +58,7 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         app:cornerRadius="@dimen/material_corner_radius"
-        android:text="Get IP" />
+        android:text="Join Lecture" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -69,7 +69,7 @@
         android:layout_below="@+id/get_ip_button"
         android:layout_marginTop="20dp"
         app:cornerRadius="@dimen/material_corner_radius"
-        android:text="Request" />
+        android:text="Join Queue" />
 
         android:layout_alignLeft="@+id/start_button"
         android:layout_below="@+id/stop_button"
@@ -85,6 +85,6 @@
         app:cornerRadius="@dimen/material_corner_radius"
         android:layout_below="@+id/send_request_button"
         android:layout_marginTop="20dp"
-        android:text="SOS"
+        android:text="Poke The Prof"
         />
 </RelativeLayout>
